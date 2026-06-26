@@ -365,19 +365,13 @@ function TopBar() {
 function CommandPalette() {
   const [open, setOpen] = useState(false);
   const [q, setQ] = useState("");
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  const close = () => {
-    setOpen(false);
-    setQ("");
-  };
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
         setOpen((o) => !o);
-      } else if (e.key === "Escape") close();
+      }
     };
     const onOpen = () => setOpen(true);
     window.addEventListener("keydown", onKey);
@@ -387,24 +381,6 @@ function CommandPalette() {
       window.removeEventListener("yc:openPalette", onOpen);
     };
   }, []);
-
-  // Body scroll lock + focus when opened
-  useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    if (open) {
-      // Slight delay so keyboard animation doesn't fight React render
-      const t = setTimeout(() => inputRef.current?.focus(), 80);
-      return () => clearTimeout(t);
-    }
-  }, [open]);
-
-  // Reset scroll lock on unmount
-  useEffect(
-    () => () => {
-      document.body.style.overflow = "";
-    },
-    [],
-  );
 
   const items = useMemo(() => {
     const base: { kind: string; label: string; href: string; ext?: boolean }[] = [
@@ -426,117 +402,46 @@ function CommandPalette() {
     );
   }, [q]);
 
+  const runCommand = (item: { kind: string; label: string; href: string; ext?: boolean }) => {
+    setOpen(false);
+    setTimeout(() => {
+      if (item.ext) {
+        window.open(item.href, "_blank", "noreferrer");
+      } else {
+        window.location.hash = item.href;
+      }
+    }, 150);
+  };
+
   return (
-    <div
-      aria-hidden={!open}
-      className={`fixed inset-0 z-[300] flex items-start justify-center bg-ink/30 backdrop-blur-sm px-4 transition-opacity duration-200 ${
-        open ? "opacity-100" : "opacity-0 pointer-events-none"
-      }`}
-      onClick={close}
-    >
-      <div
-        className={`mt-16 sm:mt-[14vh] w-full max-w-[560px] overflow-hidden rounded-2xl border-2 border-ink bg-paper transition-all duration-200 ${
-          open ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"
-        }`}
-        onClick={(e) => e.stopPropagation()}
-        style={{ boxShadow: "var(--shadow-hard)" }}
-      >
-        {/* Header row */}
-        <div className="flex items-center gap-2 border-b-2 border-ink px-3 py-3">
-          {/* Mobile: back arrow close button */}
-          <button
-            onClick={close}
-            aria-label="Close search"
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-ink/20 bg-ink/5 text-[16px] text-ink/70 sm:hidden"
-          >
-            ←
-          </button>
-          {/* Desktop: ⌘K label */}
-          <span className="font-display hidden shrink-0 text-[12px] uppercase tracking-[0.18em] text-ink/60 sm:inline">
-            ⌘K
-          </span>
-          <input
-            ref={inputRef}
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" && items.length > 0) {
-                e.preventDefault();
-                const item = items[0];
-                close();
-                setTimeout(() => {
-                  if (item.ext) {
-                    window.open(item.href, "_blank", "noreferrer");
-                  } else {
-                    window.location.hash = item.href;
-                  }
-                }, 100);
-              }
-            }}
-            placeholder="Sections, projects, links…"
-            className="font-body min-w-0 flex-1 bg-transparent text-[15px] outline-none"
-            autoComplete="off"
-            autoCorrect="off"
-            autoCapitalize="off"
-            spellCheck={false}
-          />
-          {/* Clear query button */}
-          {q && (
-            <button
-              onClick={() => setQ("")}
-              aria-label="Clear input"
-              className="font-display shrink-0 rounded-full bg-ink/10 px-2.5 py-1 text-[11px] text-ink/60 transition-colors hover:bg-ink/20"
-            >
-              Clear
-            </button>
-          )}
-          {/* Desktop: Explicit Close Button */}
-          <button
-            onClick={close}
-            aria-label="Close search"
-            className="font-display hidden shrink-0 items-center gap-1.5 rounded-full border border-ink/20 bg-ink/5 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink hover:text-paper sm:flex"
-          >
-            <span>Close</span>
-            <kbd className="font-mono rounded border border-current/30 px-1 py-0.5 text-[9px] opacity-70">
-              ESC
-            </kbd>
-          </button>
-        </div>
-        {/* Results list */}
-        <ul className="max-h-[55vh] overflow-y-auto p-2">
-          {items.length === 0 && (
-            <li className="px-3 py-4 text-sm text-ink/50">
-              No matches. Try “rust”, “django”, or “contact”.
-            </li>
-          )}
+    <CommandDialog open={open} onOpenChange={setOpen}>
+      <CommandInput
+        placeholder="Search sections, projects, links..."
+        value={q}
+        onValueChange={setQ}
+      />
+      <CommandList>
+        <CommandEmpty>No results found.</CommandEmpty>
+        <CommandGroup heading="Results">
           {items.map((item, idx) => (
-            <li key={idx}>
-              <a
-                href={item.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  close();
-                  setTimeout(() => {
-                    if (item.ext) {
-                      window.open(item.href, "_blank", "noreferrer");
-                    } else {
-                      window.location.hash = item.href;
-                    }
-                  }, 100);
-                }}
-                className="flex items-center gap-3 rounded-xl px-3 py-3 hover:bg-ink hover:text-paper active:bg-ink active:text-paper"
-              >
-                <span className="font-display w-16 shrink-0 text-[10px] uppercase tracking-[0.18em] text-ink/50">
-                  {item.kind}
-                </span>
-                <span className="font-body flex-1 truncate text-[14px]">{item.label}</span>
-                <span className="font-mono shrink-0 text-[11px] opacity-60">↵</span>
-              </a>
-            </li>
+            <CommandItem
+              key={idx}
+              value={item.label}
+              onSelect={() => runCommand(item)}
+              className="cursor-pointer py-3"
+            >
+              <span className="font-display w-16 shrink-0 text-[10px] uppercase tracking-[0.18em] text-ink/50">
+                {item.kind}
+              </span>
+              <span className="font-body text-[15px] font-medium text-ink">{item.label}</span>
+              <span className="ml-auto font-display text-[10px] uppercase tracking-[0.2em] text-ink/40">
+                Select ↵
+              </span>
+            </CommandItem>
           ))}
-        </ul>
-      </div>
-    </div>
+        </CommandGroup>
+      </CommandList>
+    </CommandDialog>
   );
 }
 
@@ -597,28 +502,24 @@ function Cover() {
               </span>
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-3 sm:gap-4">
-              <Magnetic>
-                <a
-                  href="#projects"
-                  data-cursor="see work"
-                  className="font-display group inline-flex items-center gap-3 rounded-full border-2 border-ink bg-ink px-6 py-3 text-paper uppercase tracking-[0.22em]"
-                  style={{ boxShadow: "var(--shadow-hard)" }}
-                >
-                  <span>See the work</span>
-                  <span className="inline-block transition-transform group-hover:translate-x-1">
-                    ↘
-                  </span>
-                </a>
-              </Magnetic>
-              <Magnetic>
-                <a
-                  href="mailto:yogya.developer@gmail.com"
-                  data-cursor="email"
-                  className="font-display inline-flex items-center gap-2 rounded-full border-2 border-ink bg-paper px-6 py-3 uppercase tracking-[0.22em]"
-                >
-                  Hire me
-                </a>
-              </Magnetic>
+              <a
+                href="#projects"
+                data-cursor="see work"
+                className="font-display group inline-flex items-center gap-3 rounded-full border-2 border-ink bg-ink px-6 py-3 text-paper uppercase tracking-[0.22em] hover:opacity-80 transition-opacity"
+                style={{ boxShadow: "var(--shadow-hard)" }}
+              >
+                <span>See the work</span>
+                <span className="inline-block transition-transform group-hover:translate-x-1">
+                  ↘
+                </span>
+              </a>
+              <a
+                href="mailto:yogya.developer@gmail.com"
+                data-cursor="email"
+                className="font-display inline-flex items-center gap-2 rounded-full border-2 border-ink bg-paper px-6 py-3 uppercase tracking-[0.22em] hover:bg-ink hover:text-paper transition-colors"
+              >
+                Hire me
+              </a>
               <a
                 href="https://github.com/YogyaChugh"
                 target="_blank"
@@ -1088,8 +989,7 @@ function Outro() {
             Internships, freelance, or a chat about Rust / browsers / game dev — I read everything
             and reply fast.
           </p>
-          {/* Buttons: full-width stack on mobile, inline row on sm+ */}
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
             <a
               href="mailto:yogya.developer@gmail.com"
               data-cursor="email"
