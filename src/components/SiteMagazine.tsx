@@ -396,14 +396,12 @@ function CommandPalette() {
 
   if (!open) return null;
   return (
-    <div className="fixed inset-0 z-[300] flex items-end sm:items-start justify-center bg-ink/30 backdrop-blur-sm" onClick={() => setOpen(false)}>
+    <div className="fixed inset-0 z-[300] flex items-start justify-center bg-ink/30 backdrop-blur-sm px-4" onClick={() => setOpen(false)}>
       <div
-        className="w-full rounded-t-3xl sm:mt-[14vh] sm:w-[min(620px,92vw)] sm:rounded-2xl overflow-hidden border-2 border-ink bg-paper"
+        className="mt-[72px] sm:mt-[14vh] w-full max-w-[560px] rounded-2xl overflow-hidden border-2 border-ink bg-paper"
         onClick={e => e.stopPropagation()}
         style={{ boxShadow: "var(--shadow-hard)" }}
       >
-        {/* Drag handle — visible only on mobile */}
-        <div className="mx-auto mt-3 mb-1 h-1 w-10 rounded-full bg-ink/20 sm:hidden" />
         <div className="flex items-center gap-3 border-b-2 border-ink px-4 py-3">
           <span className="font-display text-[12px] uppercase tracking-[0.18em] text-ink/60">
             <span className="hidden sm:inline">⌘K</span>
@@ -429,7 +427,7 @@ function CommandPalette() {
             </button>
           )}
         </div>
-        <ul className="max-h-[45vh] sm:max-h-[50vh] overflow-y-auto p-2 pb-[env(safe-area-inset-bottom,8px)]">
+        <ul className="max-h-[55vh] overflow-y-auto p-2">
           {items.length === 0 && (
             <li className="px-3 py-3 text-sm text-ink/50">No matches. Try “rust”, “django”, or “contact”.</li>
           )}
@@ -481,8 +479,8 @@ function Cover() {
         <div className="relative grid grid-cols-12 gap-4 pt-6 md:pt-10">
           <div className="col-span-12 lg:col-span-8">
             <h1 className="font-display leading-[0.82] tracking-tight">
-              <span className="block text-[clamp(4rem,16vw,12rem)]">YOGYA</span>
-              <span className="block text-[clamp(4rem,16vw,12rem)] text-chrome">CHUGH.</span>
+              <span className="block text-[clamp(2.8rem,13vw,12rem)]">YOGYA</span>
+              <span className="block text-[clamp(2.8rem,13vw,12rem)] text-chrome">CHUGH.</span>
             </h1>
             <p className="font-body mt-6 max-w-xl text-[18px] leading-[1.4] text-ink/80">
               <span className="font-display text-[14px] uppercase tracking-[0.2em] text-ink">Developer</span>
@@ -532,19 +530,19 @@ function Cover() {
           {/* Right sticker stack */}
           <div className="col-span-12 mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:col-span-4 lg:mt-0 lg:grid-cols-2 lg:gap-4">
             <Sticker tone="lavender" tilt="-3deg">
-              <div className="font-display text-[44px] leading-none">5+</div>
+              <div className="font-display text-[32px] sm:text-[44px] leading-none">5+</div>
               <div className="font-display mt-1 text-[10px] uppercase tracking-[0.18em] text-ink/70">years coding</div>
             </Sticker>
             <Sticker tone="cyan" tilt="2deg">
-              <div className="font-display text-[44px] leading-none">8.38</div>
+              <div className="font-display text-[32px] sm:text-[44px] leading-none">8.38</div>
               <div className="font-display mt-1 text-[10px] uppercase tracking-[0.18em] text-ink/70">cur. CGPA</div>
             </Sticker>
             <Sticker tone="sky" tilt="2deg">
-              <div className="font-display text-[44px] leading-none">450h</div>
+              <div className="font-display text-[32px] sm:text-[44px] leading-none">450h</div>
               <div className="font-display mt-1 text-[10px] uppercase tracking-[0.18em] text-ink/70">summer of making</div>
             </Sticker>
             <Sticker tone="indigo" tilt="-2deg" dark>
-              <div className="font-display text-[36px] leading-none text-paper">$1,649</div>
+              <div className="font-display text-[26px] sm:text-[36px] leading-none text-paper">$1,649</div>
               <div className="font-display mt-1 text-[10px] uppercase tracking-[0.18em] text-paper/80">laptop prize · 2025</div>
             </Sticker>
             <div className="col-span-2 flex items-center justify-center">
@@ -595,7 +593,8 @@ function Feature() {
 
         <article className="col-span-12 columns-1 gap-8 text-[17px] leading-[1.55] text-ink/85 md:columns-2 lg:col-span-8">
           <p className="mb-4">
-            <span className="font-display float-left mr-3 text-[80px] leading-[0.8] text-chrome">I</span>
+            <span className="font-display hidden sm:float-left sm:inline mr-3 text-[80px] leading-[0.8] text-chrome">I</span>
+            <span className="sm:hidden font-display text-chrome">I</span>
             started writing software in high school because the games I wanted didn&rsquo;t exist yet — so I made
             crude ones. Five years later that habit grew teeth: I&rsquo;m writing a Rust IDE that emits
             <em> classes.dex</em> by hand, a C++ DOM that follows the WhatWG spec to the letter, and the kind of
@@ -942,50 +941,50 @@ function Outro() {
             Back cover
           </span>
           <Eyebrow inverse>Contact</Eyebrow>
-          <h2 className="font-display mt-3 text-[clamp(2.6rem,9vw,8rem)] leading-[0.85]">
+          <h2 className="font-display mt-3 text-[clamp(1.9rem,8vw,8rem)] leading-[0.85]">
             Let&rsquo;s build<br />something <span className="italic">funny.</span>
           </h2>
           <p className="font-body mt-5 max-w-xl text-[16px] leading-[1.5] text-ink/85">
             Internships, freelance, or a chat about Rust / browsers / game dev — I read everything and reply fast.
           </p>
-          <div className="mt-8 grid grid-cols-1 gap-3 sm:flex sm:flex-row sm:flex-wrap">
-            <Magnetic className="w-full sm:w-auto">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Magnetic>
               <a
                 href="mailto:yogya.developer@gmail.com"
                 data-cursor="email"
-                className="font-display block w-full rounded-full border-2 border-ink bg-ink px-6 py-3 text-center text-paper uppercase tracking-[0.18em] sm:tracking-[0.22em]"
+                className="font-display block rounded-full border-2 border-ink bg-ink px-6 py-3.5 text-center text-paper uppercase tracking-[0.18em] sm:tracking-[0.22em]"
               >
                 <span className="hidden sm:inline">yogya.developer@gmail.com</span>
                 <span className="sm:hidden">✉ Email me</span>
               </a>
             </Magnetic>
-            <Magnetic className="w-full sm:w-auto">
+            <Magnetic>
               <a
                 href="https://github.com/YogyaChugh"
                 target="_blank"
                 rel="noreferrer"
                 data-cursor="github"
-                className="font-display block w-full rounded-full border-2 border-ink bg-paper px-6 py-3 text-center uppercase tracking-[0.22em] sm:w-auto"
+                className="font-display block rounded-full border-2 border-ink bg-paper px-6 py-3.5 text-center uppercase tracking-[0.22em]"
               >
                 GitHub ↗
               </a>
             </Magnetic>
-            <Magnetic className="w-full sm:w-auto">
+            <Magnetic>
               <a
                 href="https://linkedin.com/in/yogyachugh"
                 target="_blank"
                 rel="noreferrer"
                 data-cursor="linkedin"
-                className="font-display block w-full rounded-full border-2 border-ink bg-paper px-6 py-3 text-center uppercase tracking-[0.22em] sm:w-auto"
+                className="font-display block rounded-full border-2 border-ink bg-paper px-6 py-3.5 text-center uppercase tracking-[0.22em]"
               >
                 LinkedIn ↗
               </a>
             </Magnetic>
-            <Magnetic className="w-full sm:w-auto">
+            <Magnetic>
               <a
                 href="tel:+919650029959"
                 data-cursor="call"
-                className="font-display block w-full rounded-full border-2 border-ink bg-paper px-6 py-3 text-center uppercase tracking-[0.22em] sm:w-auto"
+                className="font-display block rounded-full border-2 border-ink bg-paper px-6 py-3.5 text-center uppercase tracking-[0.22em]"
               >
                 +91 96500 29959
               </a>
@@ -1102,7 +1101,7 @@ function Magnetic({ children, className }: { children: React.ReactNode; classNam
     };
   }, []);
   return (
-    <span ref={ref} className={`inline-block transition-transform duration-200 ease-out${className ? ` ${className}` : ""}`}>
+    <span ref={ref} className={`block sm:inline-block transition-transform duration-200 ease-out${className ? ` ${className}` : ""}`}>
       {children}
     </span>
   );

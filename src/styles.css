@@ -227,7 +227,7 @@
   --color-lime: var(--lime);
 }
 
-/* ── Mobile-friendliness additions ── */
+/* ── Mobile-friendliness ── */
 
 /* Restore cursor on touch devices */
 @media (hover: none) and (pointer: coarse) {
@@ -239,11 +239,55 @@
 /* Prevent horizontal overflow on small screens */
 html, body {
   overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Smooth scrolling for anchor navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent long words / URLs from busting layout */
+p, li, h1, h2, h3 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Proper tap highlight on mobile */
+a, button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Minimum touch target size (44px) */
+@media (hover: none) and (pointer: coarse) {
+  a, button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Ledger work list items – easier to tap */
+  ol > li {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+
+  /* Stack tilt removes on touch so layout isn't broken */
+  .tilt-l, .tilt-r {
+    transform: none;
+  }
 }
 
 /* Ticker: slightly smaller on mobile so words don't get cut */
 @media (max-width: 640px) {
   .animate-marquee span {
-    font-size: 14px;
+    font-size: 13px;
+  }
+
+  /* Shadow on cards is too heavy on small screens — lighten it */
+  [style*="--shadow-hard"] {
+    box-shadow: 3px 3px 0 0 var(--ink);
   }
 }
