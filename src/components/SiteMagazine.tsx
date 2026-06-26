@@ -396,23 +396,40 @@ function CommandPalette() {
 
   if (!open) return null;
   return (
-    <div className="fixed inset-0 z-[300] flex items-start justify-center bg-ink/30 backdrop-blur-sm" onClick={() => setOpen(false)}>
+    <div className="fixed inset-0 z-[300] flex items-end sm:items-start justify-center bg-ink/30 backdrop-blur-sm" onClick={() => setOpen(false)}>
       <div
-        className="mt-[14vh] w-[min(620px,92vw)] overflow-hidden rounded-2xl border-2 border-ink bg-paper"
+        className="w-full rounded-t-3xl sm:mt-[14vh] sm:w-[min(620px,92vw)] sm:rounded-2xl overflow-hidden border-2 border-ink bg-paper"
         onClick={e => e.stopPropagation()}
         style={{ boxShadow: "var(--shadow-hard)" }}
       >
+        {/* Drag handle — visible only on mobile */}
+        <div className="mx-auto mt-3 mb-1 h-1 w-10 rounded-full bg-ink/20 sm:hidden" />
         <div className="flex items-center gap-3 border-b-2 border-ink px-4 py-3">
-          <span className="font-display text-[12px] uppercase tracking-[0.18em] text-ink/60">⌘K</span>
+          <span className="font-display text-[12px] uppercase tracking-[0.18em] text-ink/60">
+            <span className="hidden sm:inline">⌘K</span>
+            <span className="sm:hidden">Search</span>
+          </span>
           <input
             autoFocus
             value={q}
             onChange={e => setQ(e.target.value)}
-            placeholder="Search the magazine — sections, projects, links…"
+            placeholder="Sections, projects, links…"
             className="font-body w-full bg-transparent text-[15px] outline-none"
+            autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="off"
+            spellCheck={false}
           />
+          {q && (
+            <button
+              onClick={() => setQ("")}
+              className="font-display shrink-0 rounded-full bg-ink/10 px-2 py-0.5 text-[11px] text-ink/60"
+            >
+              ✕
+            </button>
+          )}
         </div>
-        <ul className="max-h-[50vh] overflow-y-auto p-2">
+        <ul className="max-h-[45vh] sm:max-h-[50vh] overflow-y-auto p-2 pb-[env(safe-area-inset-bottom,8px)]">
           {items.length === 0 && (
             <li className="px-3 py-3 text-sm text-ink/50">No matches. Try “rust”, “django”, or “contact”.</li>
           )}
@@ -446,15 +463,15 @@ function Cover() {
     <section id="cover" className="relative px-4 pb-10 pt-28 md:px-8 md:pt-32">
       <div className="mx-auto max-w-[1400px]">
         {/* Masthead strip */}
-        <div className="flex flex-wrap items-end justify-between gap-3 border-b-2 border-ink pb-3">
-          <div className="flex items-baseline gap-3">
-            <span className="font-display text-[12px] uppercase tracking-[0.22em] text-ink/60">Issue Nº 27</span>
-            <span className="font-display text-[12px] uppercase tracking-[0.22em] text-ink/60">·</span>
-            <span className="font-display text-[12px] uppercase tracking-[0.22em] text-ink/60">B.Tech Edition</span>
-            <span className="font-display text-[12px] uppercase tracking-[0.22em] text-ink/60">·</span>
-            <span className="font-display text-[12px] uppercase tracking-[0.22em] text-ink/60">Delhi → Earth</span>
+        <div className="flex flex-wrap items-end justify-between gap-2 border-b-2 border-ink pb-3">
+          <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+            <span className="font-display text-[11px] uppercase tracking-[0.22em] text-ink/60">Issue Nº 27</span>
+            <span className="font-display text-[11px] uppercase tracking-[0.22em] text-ink/60 hidden sm:inline">·</span>
+            <span className="font-display text-[11px] uppercase tracking-[0.22em] text-ink/60 hidden sm:inline">B.Tech Edition</span>
+            <span className="font-display text-[11px] uppercase tracking-[0.22em] text-ink/60 hidden sm:inline">·</span>
+            <span className="font-display text-[11px] uppercase tracking-[0.22em] text-ink/60 hidden sm:inline">Delhi → Earth</span>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-1.5">
             <Pill color="lavender">B.Tech CSE · 2027</Pill>
             <Pill color="cyan">Open for SDE internships</Pill>
           </div>
@@ -547,7 +564,7 @@ function Ticker() {
     <div className="relative my-6 overflow-hidden border-y-2 border-ink bg-ink py-3 text-paper">
       <div className="flex animate-marquee whitespace-nowrap">
         {items.map((t, i) => (
-          <span key={i} className="font-display mx-6 text-[18px] uppercase tracking-[0.22em]">
+          <span key={i} className="font-display mx-5 text-[14px] sm:text-[18px] uppercase tracking-[0.22em]">
             {t}
           </span>
         ))}
@@ -687,9 +704,9 @@ function Ledger() {
                   {w.body}
                 </p>
               </div>
-              <div className="col-span-12 flex items-center gap-2 md:col-span-4 md:justify-end">
+              <div className="col-span-12 flex flex-wrap items-center gap-2 md:col-span-4 md:justify-end">
                 <Pill color={i === 0 ? "lime" : i === 2 ? "hot" : "lavender"}>{w.tag}</Pill>
-                <span className="font-display text-[14px] uppercase tracking-[0.18em] text-ink/70">{w.when}</span>
+                <span className="font-display text-[13px] uppercase tracking-[0.18em] text-ink/70">{w.when}</span>
               </div>
             </li>
           ))}
@@ -837,11 +854,11 @@ function Trophies() {
             <li
               key={w.v}
               data-cursor="win"
-              className="col-span-12 flex items-center gap-5 rounded-2xl border-2 border-ink bg-white p-5 transition-transform hover:-translate-y-0.5 md:col-span-6"
+              className="col-span-12 flex items-center gap-4 rounded-2xl border-2 border-ink bg-white p-4 sm:p-5 transition-transform hover:-translate-y-0.5 md:col-span-6"
               style={{ boxShadow: "var(--shadow-hard)" }}
             >
               <span
-                className="font-display flex h-16 min-w-16 items-center justify-center rounded-2xl bg-chrome px-4 text-[28px]"
+                className="font-display flex h-14 min-w-14 sm:h-16 sm:min-w-16 items-center justify-center rounded-2xl bg-chrome px-3 text-[22px] sm:text-[28px]"
               >
                 {w.k}
               </span>
@@ -920,28 +937,29 @@ function Outro() {
   return (
     <section id="outro" className="relative px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[1400px]">
-        <div className="relative overflow-hidden rounded-[36px] border-2 border-ink bg-chrome p-8 md:p-14" style={{ boxShadow: "var(--shadow-hard)" }}>
+        <div className="relative overflow-hidden rounded-[36px] border-2 border-ink bg-chrome p-8 pt-16 sm:pt-8 md:p-14" style={{ boxShadow: "var(--shadow-hard)" }}>
           <span className="font-display absolute right-6 top-6 rounded-full bg-ink px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-paper">
             Back cover
           </span>
           <Eyebrow inverse>Contact</Eyebrow>
-          <h2 className="font-display mt-3 text-[clamp(3rem,9vw,8rem)] leading-[0.85]">
+          <h2 className="font-display mt-3 text-[clamp(2.6rem,9vw,8rem)] leading-[0.85]">
             Let&rsquo;s build<br />something <span className="italic">funny.</span>
           </h2>
-          <p className="font-body mt-5 max-w-xl text-[17px] leading-[1.5] text-ink/85">
+          <p className="font-body mt-5 max-w-xl text-[16px] leading-[1.5] text-ink/85">
             Internships, freelance, or a chat about Rust / browsers / game dev — I read everything and reply fast.
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Magnetic>
+          <div className="mt-8 grid grid-cols-1 gap-3 sm:flex sm:flex-row sm:flex-wrap">
+            <Magnetic className="w-full sm:w-auto">
               <a
                 href="mailto:yogya.developer@gmail.com"
                 data-cursor="email"
-                className="font-display rounded-full border-2 border-ink bg-ink px-6 py-3 text-paper uppercase tracking-[0.22em]"
+                className="font-display block w-full rounded-full border-2 border-ink bg-ink px-6 py-3 text-center text-paper uppercase tracking-[0.18em] sm:tracking-[0.22em]"
               >
-                yogya.developer@gmail.com
+                <span className="hidden sm:inline">yogya.developer@gmail.com</span>
+                <span className="sm:hidden">✉ Email me</span>
               </a>
             </Magnetic>
-            <Magnetic>
+            <Magnetic className="w-full sm:w-auto">
               <a
                 href="https://github.com/YogyaChugh"
                 target="_blank"
@@ -952,7 +970,7 @@ function Outro() {
                 GitHub ↗
               </a>
             </Magnetic>
-            <Magnetic>
+            <Magnetic className="w-full sm:w-auto">
               <a
                 href="https://linkedin.com/in/yogyachugh"
                 target="_blank"
@@ -963,7 +981,7 @@ function Outro() {
                 LinkedIn ↗
               </a>
             </Magnetic>
-            <Magnetic>
+            <Magnetic className="w-full sm:w-auto">
               <a
                 href="tel:+919650029959"
                 data-cursor="call"
@@ -1056,7 +1074,7 @@ function Sticker({
   );
 }
 
-function Magnetic({ children }: { children: React.ReactNode }) {
+function Magnetic({ children, className }: { children: React.ReactNode; className?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   useEffect(() => {
     const el = ref.current;
@@ -1084,7 +1102,7 @@ function Magnetic({ children }: { children: React.ReactNode }) {
     };
   }, []);
   return (
-    <span ref={ref} className="inline-block transition-transform duration-200 ease-out">
+    <span ref={ref} className={`inline-block transition-transform duration-200 ease-out${className ? ` ${className}` : ""}`}>
       {children}
     </span>
   );
