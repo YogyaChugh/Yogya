@@ -78,16 +78,36 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Yogya Chugh — Developer, Builder" },
-      { name: "description", content: "Yogya Chugh — CS undergrad and software developer building IDEs, browser engines, ML tools, and shipping software for real clients." },
+      {
+        name: "description",
+        content:
+          "Yogya Chugh — CS undergrad and software developer building IDEs, browser engines, ML tools, and shipping software for real clients.",
+      },
       { name: "author", content: "Yogya Chugh" },
       { property: "og:title", content: "Yogya Chugh — Developer, Builder" },
-      { property: "og:description", content: "Yogya Chugh — CS undergrad and software developer building IDEs, browser engines, ML tools, and shipping software for real clients." },
+      {
+        property: "og:description",
+        content:
+          "Yogya Chugh — CS undergrad and software developer building IDEs, browser engines, ML tools, and shipping software for real clients.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: "Yogya Chugh — Developer, Builder" },
-      { name: "twitter:description", content: "Yogya Chugh — CS undergrad and software developer building IDEs, browser engines, ML tools, and shipping software for real clients." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/49084de2-eaa0-4618-96fa-83570f7cf07d/id-preview-0d6728fe--e48dca64-b5ba-4dd3-81ed-f5c2f8858eac.lovable.app-1782471428005.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/49084de2-eaa0-4618-96fa-83570f7cf07d/id-preview-0d6728fe--e48dca64-b5ba-4dd3-81ed-f5c2f8858eac.lovable.app-1782471428005.png" },
+      {
+        name: "twitter:description",
+        content:
+          "Yogya Chugh — CS undergrad and software developer building IDEs, browser engines, ML tools, and shipping software for real clients.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/49084de2-eaa0-4618-96fa-83570f7cf07d/id-preview-0d6728fe--e48dca64-b5ba-4dd3-81ed-f5c2f8858eac.lovable.app-1782471428005.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/49084de2-eaa0-4618-96fa-83570f7cf07d/id-preview-0d6728fe--e48dca64-b5ba-4dd3-81ed-f5c2f8858eac.lovable.app-1782471428005.png",
+      },
     ],
     links: [
       {

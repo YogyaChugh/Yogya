@@ -13,8 +13,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Yogya Chugh — Developer & Builder" },
       {
         property: "og:description",
-        content:
-          "Magazine-style portfolio: projects, work, writing, contact.",
+        content: "Magazine-style portfolio: projects, work, writing, contact.",
       },
     ],
   }),

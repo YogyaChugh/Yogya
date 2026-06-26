@@ -83,7 +83,8 @@ const PROJECTS: Project[] = [
   },
   {
     name: "Webber",
-    blurb: "Desktop crawler that downloads any website for offline rendering. Pygame + PyWebview + BS4.",
+    blurb:
+      "Desktop crawler that downloads any website for offline rendering. Pygame + PyWebview + BS4.",
     tags: ["Python", "Crawler"],
     href: "https://github.com/YogyaChugh/Webber",
     year: "2023",
@@ -91,7 +92,8 @@ const PROJECTS: Project[] = [
   },
   {
     name: "SIH Travel Security",
-    blurb: "Blockchain system for encrypted tourist tracking with SSO to local authorities. Cleared SIH internals twice.",
+    blurb:
+      "Blockchain system for encrypted tourist tracking with SSO to local authorities. Cleared SIH internals twice.",
     tags: ["Blockchain", "Team"],
     href: "https://github.com/YogyaChugh",
     year: "2024",
@@ -231,8 +233,7 @@ function Backdrop() {
           backgroundImage:
             "linear-gradient(to right, oklch(0.85 0.04 280 / 0.35) 1px, transparent 1px), linear-gradient(to bottom, oklch(0.85 0.04 280 / 0.2) 1px, transparent 1px)",
           backgroundSize: "64px 64px",
-          maskImage:
-            "radial-gradient(ellipse at center, black 30%, transparent 80%)",
+          maskImage: "radial-gradient(ellipse at center, black 30%, transparent 80%)",
         }}
       />
     </>
@@ -253,14 +254,12 @@ function Cursor() {
     const onMove = (e: MouseEvent) => {
       x = e.clientX;
       y = e.clientY;
-      if (dotRef.current)
-        dotRef.current.style.transform = `translate(${x}px, ${y}px)`;
+      if (dotRef.current) dotRef.current.style.transform = `translate(${x}px, ${y}px)`;
     };
     const loop = () => {
       rx += (x - rx) * 0.18;
       ry += (y - ry) * 0.18;
-      if (ringRef.current)
-        ringRef.current.style.transform = `translate(${rx}px, ${ry}px)`;
+      if (ringRef.current) ringRef.current.style.transform = `translate(${rx}px, ${ry}px)`;
       raf = requestAnimationFrame(loop);
     };
     window.addEventListener("mousemove", onMove);
@@ -305,7 +304,7 @@ function TopBar() {
         </a>
         {/* Desktop nav */}
         <nav className="hidden items-center gap-0 rounded-full border border-ink/15 bg-white/70 p-1 backdrop-blur-md md:flex">
-          {NAV.map(n => (
+          {NAV.map((n) => (
             <a
               key={n.id}
               href={`#${n.id}`}
@@ -330,7 +329,7 @@ function TopBar() {
           {/* Mobile hamburger */}
           <button
             className="flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 bg-white/70 backdrop-blur-md md:hidden"
-            onClick={() => setMenuOpen(o => !o)}
+            onClick={() => setMenuOpen((o) => !o)}
             aria-label="Toggle menu"
           >
             <span className="font-display text-[18px] leading-none">{menuOpen ? "✕" : "☰"}</span>
@@ -339,9 +338,12 @@ function TopBar() {
       </div>
       {/* Mobile dropdown */}
       {menuOpen && (
-        <div className="mx-4 mt-1 overflow-hidden rounded-2xl border-2 border-ink bg-paper shadow-lg md:hidden" style={{ boxShadow: "var(--shadow-hard)" }}>
+        <div
+          className="mx-4 mt-1 overflow-hidden rounded-2xl border-2 border-ink bg-paper shadow-lg md:hidden"
+          style={{ boxShadow: "var(--shadow-hard)" }}
+        >
           <nav className="flex flex-col p-2">
-            {NAV.map(n => (
+            {NAV.map((n) => (
               <a
                 key={n.id}
                 href={`#${n.id}`}
@@ -374,7 +376,7 @@ function CommandPalette() {
     const onKey = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
-        setOpen(o => !o);
+        setOpen((o) => !o);
       } else if (e.key === "Escape") close();
     };
     const onOpen = () => setOpen(true);
@@ -397,20 +399,31 @@ function CommandPalette() {
   }, [open]);
 
   // Reset scroll lock on unmount
-  useEffect(() => () => { document.body.style.overflow = ""; }, []);
+  useEffect(
+    () => () => {
+      document.body.style.overflow = "";
+    },
+    [],
+  );
 
   const items = useMemo(() => {
     const base: { kind: string; label: string; href: string; ext?: boolean }[] = [
-      ...NAV.map(n => ({ kind: "Jump", label: n.label, href: `#${n.id}` })),
-      ...PROJECTS.map(p => ({ kind: "Project", label: p.name, href: p.href, ext: true })),
+      ...NAV.map((n) => ({ kind: "Jump", label: n.label, href: `#${n.id}` })),
+      ...PROJECTS.map((p) => ({ kind: "Project", label: p.name, href: p.href, ext: true })),
       { kind: "Link", label: "GitHub", href: "https://github.com/YogyaChugh", ext: true },
       { kind: "Link", label: "LinkedIn", href: "https://linkedin.com/in/yogyachugh", ext: true },
-      { kind: "Link", label: "Email · yogya.developer@gmail.com", href: "mailto:yogya.developer@gmail.com" },
+      {
+        kind: "Link",
+        label: "Email · yogya.developer@gmail.com",
+        href: "mailto:yogya.developer@gmail.com",
+      },
       { kind: "Link", label: "Phone · +91 96500 29959", href: "tel:+919650029959" },
     ];
     const f = q.trim().toLowerCase();
     if (!f) return base;
-    return base.filter(i => i.label.toLowerCase().includes(f) || i.kind.toLowerCase().includes(f));
+    return base.filter(
+      (i) => i.label.toLowerCase().includes(f) || i.kind.toLowerCase().includes(f),
+    );
   }, [q]);
 
   return (
@@ -425,7 +438,7 @@ function CommandPalette() {
         className={`mt-16 sm:mt-[14vh] w-full max-w-[560px] overflow-hidden rounded-2xl border-2 border-ink bg-paper transition-all duration-200 ${
           open ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"
         }`}
-        onClick={e => e.stopPropagation()}
+        onClick={(e) => e.stopPropagation()}
         style={{ boxShadow: "var(--shadow-hard)" }}
       >
         {/* Header row */}
@@ -445,7 +458,7 @@ function CommandPalette() {
           <input
             ref={inputRef}
             value={q}
-            onChange={e => setQ(e.target.value)}
+            onChange={(e) => setQ(e.target.value)}
             placeholder="Sections, projects, links…"
             className="font-body min-w-0 flex-1 bg-transparent text-[15px] outline-none"
             autoComplete="off"
@@ -453,24 +466,34 @@ function CommandPalette() {
             autoCapitalize="off"
             spellCheck={false}
           />
-          {/* Clear button (visible when there's a query) */}
+          {/* Clear query button */}
           {q && (
             <button
               onClick={() => setQ("")}
-              className="font-display shrink-0 rounded-full bg-ink/10 px-2.5 py-1 text-[11px] text-ink/60"
+              aria-label="Clear input"
+              className="font-display shrink-0 rounded-full bg-ink/10 px-2.5 py-1 text-[11px] text-ink/60 transition-colors hover:bg-ink/20"
             >
-              ✕
+              Clear
             </button>
           )}
-          {/* Desktop: ESC hint */}
-          <kbd className="font-mono hidden shrink-0 rounded border border-ink/20 bg-paper/60 px-1.5 py-0.5 text-[10px] text-ink/50 sm:inline">
-            ESC
-          </kbd>
+          {/* Desktop: Explicit Close Button */}
+          <button
+            onClick={close}
+            aria-label="Close search"
+            className="font-display hidden shrink-0 items-center gap-1.5 rounded-full border border-ink/20 bg-ink/5 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink hover:text-paper sm:flex"
+          >
+            <span>Close</span>
+            <kbd className="font-mono rounded border border-current/30 px-1 py-0.5 text-[9px] opacity-70">
+              ESC
+            </kbd>
+          </button>
         </div>
         {/* Results list */}
         <ul className="max-h-[55vh] overflow-y-auto p-2">
           {items.length === 0 && (
-            <li className="px-3 py-4 text-sm text-ink/50">No matches. Try “rust”, “django”, or “contact”.</li>
+            <li className="px-3 py-4 text-sm text-ink/50">
+              No matches. Try “rust”, “django”, or “contact”.
+            </li>
           )}
           {items.map((item, idx) => (
             <li key={idx}>
@@ -504,11 +527,21 @@ function Cover() {
         {/* Masthead strip */}
         <div className="flex flex-wrap items-end justify-between gap-2 border-b-2 border-ink pb-3">
           <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-            <span className="font-display text-[11px] uppercase tracking-[0.22em] text-ink/60">Issue Nº 27</span>
-            <span className="font-display text-[11px] uppercase tracking-[0.22em] text-ink/60 hidden sm:inline">·</span>
-            <span className="font-display text-[11px] uppercase tracking-[0.22em] text-ink/60 hidden sm:inline">B.Tech Edition</span>
-            <span className="font-display text-[11px] uppercase tracking-[0.22em] text-ink/60 hidden sm:inline">·</span>
-            <span className="font-display text-[11px] uppercase tracking-[0.22em] text-ink/60 hidden sm:inline">Delhi → Earth</span>
+            <span className="font-display text-[11px] uppercase tracking-[0.22em] text-ink/60">
+              Issue Nº 27
+            </span>
+            <span className="font-display text-[11px] uppercase tracking-[0.22em] text-ink/60 hidden sm:inline">
+              ·
+            </span>
+            <span className="font-display text-[11px] uppercase tracking-[0.22em] text-ink/60 hidden sm:inline">
+              B.Tech Edition
+            </span>
+            <span className="font-display text-[11px] uppercase tracking-[0.22em] text-ink/60 hidden sm:inline">
+              ·
+            </span>
+            <span className="font-display text-[11px] uppercase tracking-[0.22em] text-ink/60 hidden sm:inline">
+              Delhi → Earth
+            </span>
           </div>
           <div className="flex flex-wrap items-center gap-1.5">
             <Pill color="lavender">B.Tech CSE · 2027</Pill>
@@ -524,15 +557,21 @@ function Cover() {
               <span className="block text-[clamp(2.8rem,13vw,12rem)] text-chrome">CHUGH.</span>
             </h1>
             <p className="font-body mt-6 max-w-xl text-[18px] leading-[1.4] text-ink/80">
-              <span className="font-display text-[14px] uppercase tracking-[0.2em] text-ink">Developer</span>
+              <span className="font-display text-[14px] uppercase tracking-[0.2em] text-ink">
+                Developer
+              </span>
               <span className="mx-2 text-ink/30">/</span>
-              <span className="font-display text-[14px] uppercase tracking-[0.2em] text-ink">Builder</span>
+              <span className="font-display text-[14px] uppercase tracking-[0.2em] text-ink">
+                Builder
+              </span>
               <span className="mx-2 text-ink/30">/</span>
-              <span className="font-display text-[14px] uppercase tracking-[0.2em] text-ink">Open-source kid</span>
+              <span className="font-display text-[14px] uppercase tracking-[0.2em] text-ink">
+                Open-source kid
+              </span>
               <br />
               <span className="mt-3 block text-[18px] leading-[1.5]">
-                Five years deep in C++, Python, TypeScript and Rust. Right now: a native Rust IDE for Android,
-                a C++ browser engine, and software that real clients pay for.
+                Five years deep in C++, Python, TypeScript and Rust. Right now: a native Rust IDE
+                for Android, a C++ browser engine, and software that real clients pay for.
               </span>
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-3 sm:gap-4">
@@ -544,7 +583,9 @@ function Cover() {
                   style={{ boxShadow: "var(--shadow-hard)" }}
                 >
                   <span>See the work</span>
-                  <span className="inline-block transition-transform group-hover:translate-x-1">↘</span>
+                  <span className="inline-block transition-transform group-hover:translate-x-1">
+                    ↘
+                  </span>
                 </a>
               </Magnetic>
               <Magnetic>
@@ -572,22 +613,31 @@ function Cover() {
           <div className="col-span-12 mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:col-span-4 lg:mt-0 lg:grid-cols-2 lg:gap-4">
             <Sticker tone="lavender" tilt="-3deg">
               <div className="font-display text-[32px] sm:text-[44px] leading-none">5+</div>
-              <div className="font-display mt-1 text-[10px] uppercase tracking-[0.18em] text-ink/70">years coding</div>
+              <div className="font-display mt-1 text-[10px] uppercase tracking-[0.18em] text-ink/70">
+                years coding
+              </div>
             </Sticker>
             <Sticker tone="cyan" tilt="2deg">
               <div className="font-display text-[32px] sm:text-[44px] leading-none">8.38</div>
-              <div className="font-display mt-1 text-[10px] uppercase tracking-[0.18em] text-ink/70">cur. CGPA</div>
+              <div className="font-display mt-1 text-[10px] uppercase tracking-[0.18em] text-ink/70">
+                cur. CGPA
+              </div>
             </Sticker>
             <Sticker tone="sky" tilt="2deg">
               <div className="font-display text-[32px] sm:text-[44px] leading-none">450h</div>
-              <div className="font-display mt-1 text-[10px] uppercase tracking-[0.18em] text-ink/70">summer of making</div>
+              <div className="font-display mt-1 text-[10px] uppercase tracking-[0.18em] text-ink/70">
+                summer of making
+              </div>
             </Sticker>
             <Sticker tone="indigo" tilt="-2deg" dark>
-              <div className="font-display text-[26px] sm:text-[36px] leading-none text-paper">$1,649</div>
-              <div className="font-display mt-1 text-[10px] uppercase tracking-[0.18em] text-paper/80">laptop prize · 2025</div>
+              <div className="font-display text-[26px] sm:text-[36px] leading-none text-paper">
+                $1,649
+              </div>
+              <div className="font-display mt-1 text-[10px] uppercase tracking-[0.18em] text-paper/80">
+                laptop prize · 2025
+              </div>
             </Sticker>
-            <div className="col-span-2 flex items-center justify-center">
-            </div>
+            <div className="col-span-2 flex items-center justify-center"></div>
           </div>
         </div>
       </div>
@@ -603,7 +653,10 @@ function Ticker() {
     <div className="relative my-6 overflow-hidden border-y-2 border-ink bg-ink py-3 text-paper">
       <div className="flex animate-marquee whitespace-nowrap">
         {items.map((t, i) => (
-          <span key={i} className="font-display mx-5 text-[14px] sm:text-[18px] uppercase tracking-[0.22em]">
+          <span
+            key={i}
+            className="font-display mx-5 text-[14px] sm:text-[18px] uppercase tracking-[0.22em]"
+          >
             {t}
           </span>
         ))}
@@ -622,7 +675,9 @@ function Feature() {
           <div className="sticky top-28">
             <Eyebrow>About</Eyebrow>
             <h2 className="font-display mt-3 text-[clamp(2.4rem,5vw,4rem)] leading-[0.95]">
-              Built<br />in <span className="text-chrome">public.</span>
+              Built
+              <br />
+              in <span className="text-chrome">public.</span>
             </h2>
             <div className="font-display mt-6 flex flex-wrap gap-2 text-[10px] uppercase tracking-[0.2em]">
               <Pill color="cyan">essay</Pill>
@@ -634,26 +689,32 @@ function Feature() {
 
         <article className="col-span-12 columns-1 gap-8 text-[17px] leading-[1.55] text-ink/85 md:columns-2 lg:col-span-8">
           <p className="mb-4">
-            <span className="font-display hidden sm:float-left sm:inline mr-3 text-[80px] leading-[0.8] text-chrome">I</span>
+            <span className="font-display hidden sm:float-left sm:inline mr-3 text-[80px] leading-[0.8] text-chrome">
+              I
+            </span>
             <span className="sm:hidden font-display text-chrome">I</span>
-            started writing software in high school because the games I wanted didn&rsquo;t exist yet — so I made
-            crude ones. Five years later that habit grew teeth: I&rsquo;m writing a Rust IDE that emits
-            <em> classes.dex</em> by hand, a C++ DOM that follows the WhatWG spec to the letter, and the kind of
-            client software where someone actually depends on the uptime.
+            started writing software in high school because the games I wanted didn&rsquo;t exist
+            yet — so I made crude ones. Five years later that habit grew teeth: I&rsquo;m writing a
+            Rust IDE that emits
+            <em> classes.dex</em> by hand, a C++ DOM that follows the WhatWG spec to the letter, and
+            the kind of client software where someone actually depends on the uptime.
           </p>
           <p className="mb-4">
-            Most of what I&rsquo;ve learned came from shipping. Hack Club&rsquo;s Summer of Making put 450 hours on
-            the clock in three months — four open-source projects out the door, a laptop on the desk. The
-            international hackathons at Derby and Ulster taught me that 36 hours is enough to do something real
-            with a small team if you stop arguing about frameworks.
+            Most of what I&rsquo;ve learned came from shipping. Hack Club&rsquo;s Summer of Making
+            put 450 hours on the clock in three months — four open-source projects out the door, a
+            laptop on the desk. The international hackathons at Derby and Ulster taught me that 36
+            hours is enough to do something real with a small team if you stop arguing about
+            frameworks.
           </p>
           <p className="mb-4">
-            I&rsquo;m in my 3rd year of B.Tech CSE in Delhi (CGPA 8.38, zero backlogs, two semesters left). I read
-            specs for fun, I lose at online chess, and I keep building games I have no business playing.
+            I&rsquo;m in my 3rd year of B.Tech CSE in Delhi (CGPA 8.38, zero backlogs, two semesters
+            left). I read specs for fun, I lose at online chess, and I keep building games I have no
+            business playing.
           </p>
           <p className="mb-0 text-ink">
-            Looking for an SDE internship where I can write a lot of code that ships and learn from people who
-            care about craft. <span className="font-display uppercase tracking-[0.18em]">↳ Hit ⌘K to say hi.</span>
+            Looking for an SDE internship where I can write a lot of code that ships and learn from
+            people who care about craft.{" "}
+            <span className="font-display uppercase tracking-[0.18em]">↳ Hit ⌘K to say hi.</span>
           </p>
         </article>
       </div>
@@ -675,7 +736,8 @@ function Kit() {
             </h2>
           </div>
           <p className="font-body max-w-md text-[14px] text-ink/70">
-            CS fundamentals first; frameworks second. New ones get added when the project demands it — not before.
+            CS fundamentals first; frameworks second. New ones get added when the project demands it
+            — not before.
           </p>
         </div>
 
@@ -689,10 +751,12 @@ function Kit() {
             >
               <div className="flex items-baseline justify-between">
                 <h3 className="font-display text-[22px] uppercase tracking-wide">{group}</h3>
-                <span className="font-mono text-[11px] text-ink/50">{String(idx + 1).padStart(2, "0")}/06</span>
+                <span className="font-mono text-[11px] text-ink/50">
+                  {String(idx + 1).padStart(2, "0")}/06
+                </span>
               </div>
               <div className="mt-4 flex flex-wrap gap-1.5">
-                {items.map(i => (
+                {items.map((i) => (
                   <span
                     key={i}
                     className="font-display rounded-full border border-ink/25 bg-paper px-2.5 py-1 text-[12px] uppercase tracking-[0.12em]"
@@ -739,14 +803,18 @@ function Ledger() {
                 <h3 className="font-display text-[clamp(1.6rem,3vw,2.4rem)] leading-tight">
                   {w.role}
                 </h3>
-                <p className="font-body text-[14px] uppercase tracking-[0.18em] text-ink/70">{w.org}</p>
+                <p className="font-body text-[14px] uppercase tracking-[0.18em] text-ink/70">
+                  {w.org}
+                </p>
                 <p className="font-body mt-3 max-w-2xl text-[15px] leading-[1.5] text-ink/85">
                   {w.body}
                 </p>
               </div>
               <div className="col-span-12 flex flex-wrap items-center gap-2 md:col-span-4 md:justify-end">
                 <Pill color={i === 0 ? "lime" : i === 2 ? "hot" : "lavender"}>{w.tag}</Pill>
-                <span className="font-display text-[13px] uppercase tracking-[0.18em] text-ink/70">{w.when}</span>
+                <span className="font-display text-[13px] uppercase tracking-[0.18em] text-ink/70">
+                  {w.when}
+                </span>
               </div>
             </li>
           ))}
@@ -766,7 +834,9 @@ function Projects() {
           <div>
             <Eyebrow>Projects</Eyebrow>
             <h2 className="font-display mt-2 text-[clamp(2.4rem,5vw,4rem)] leading-[0.95]">
-              Things I built<br />on purpose.
+              Things I built
+              <br />
+              on purpose.
             </h2>
           </div>
           <a
@@ -846,16 +916,20 @@ function ProjectCard({ p, i }: { p: Project; i: number }) {
             </span>
             {p.featured && <Pill color="lavender">featured</Pill>}
           </div>
-          <h3 className={`font-display mt-3 leading-[0.95] ${p.big ? "text-[clamp(2.5rem,5vw,4.5rem)]" : "text-[clamp(1.6rem,2.6vw,2.4rem)]"}`}>
+          <h3
+            className={`font-display mt-3 leading-[0.95] ${p.big ? "text-[clamp(2.5rem,5vw,4.5rem)]" : "text-[clamp(1.6rem,2.6vw,2.4rem)]"}`}
+          >
             {p.name}
           </h3>
-          <p className={`font-body mt-3 max-w-md text-ink/80 ${p.big ? "text-[16px] leading-[1.5]" : "text-[14px] leading-[1.5]"}`}>
+          <p
+            className={`font-body mt-3 max-w-md text-ink/80 ${p.big ? "text-[16px] leading-[1.5]" : "text-[14px] leading-[1.5]"}`}
+          >
             {p.blurb}
           </p>
         </div>
         <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
           <div className="flex flex-wrap gap-1.5">
-            {p.tags.map(t => (
+            {p.tags.map((t) => (
               <span
                 key={t}
                 className="font-display rounded-full border border-ink/30 bg-paper/80 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.12em] backdrop-blur"
@@ -897,9 +971,7 @@ function Trophies() {
               className="col-span-12 flex items-center gap-4 rounded-2xl border-2 border-ink bg-white p-4 sm:p-5 transition-transform hover:-translate-y-0.5 md:col-span-6"
               style={{ boxShadow: "var(--shadow-hard)" }}
             >
-              <span
-                className="font-display flex h-14 min-w-14 sm:h-16 sm:min-w-16 items-center justify-center rounded-2xl bg-chrome px-3 text-[22px] sm:text-[28px]"
-              >
+              <span className="font-display flex h-14 min-w-14 sm:h-16 sm:min-w-16 items-center justify-center rounded-2xl bg-chrome px-3 text-[22px] sm:text-[28px]">
                 {w.k}
               </span>
               <div>
@@ -986,10 +1058,13 @@ function Outro() {
           </span>
           <Eyebrow inverse>Contact</Eyebrow>
           <h2 className="font-display mt-3 text-[clamp(1.9rem,8vw,8rem)] leading-[0.85]">
-            Let&rsquo;s build<br />something <span className="italic">funny.</span>
+            Let&rsquo;s build
+            <br />
+            something <span className="italic">funny.</span>
           </h2>
           <p className="font-body mt-5 max-w-xl text-[15px] sm:text-[16px] leading-[1.5] text-ink/85">
-            Internships, freelance, or a chat about Rust / browsers / game dev — I read everything and reply fast.
+            Internships, freelance, or a chat about Rust / browsers / game dev — I read everything
+            and reply fast.
           </p>
           {/* Buttons: full-width stack on mobile, inline row on sm+ */}
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -1040,9 +1115,7 @@ function Colophon() {
         <span className="font-display text-[11px] uppercase tracking-[0.22em] text-ink/60">
           © {new Date().getFullYear()} Yogya Chugh · Issue Nº 27 · printed on the internet
         </span>
-        <span className="font-mono text-[11px] text-ink/50">
-          designed & built, twice. lol.
-        </span>
+        <span className="font-mono text-[11px] text-ink/50">designed & built, twice. lol.</span>
       </div>
     </footer>
   );
@@ -1061,7 +1134,13 @@ function Eyebrow({ children, inverse }: { children: React.ReactNode; inverse?: b
   );
 }
 
-function Pill({ children, color }: { children: React.ReactNode; color: "lavender" | "cyan" | "sky" | "indigo" | "hot" | "lime" }) {
+function Pill({
+  children,
+  color,
+}: {
+  children: React.ReactNode;
+  color: "lavender" | "cyan" | "sky" | "indigo" | "hot" | "lime";
+}) {
   const map: Record<string, string> = {
     lavender: "bg-[oklch(0.9_0.08_300)] text-ink",
     cyan: "bg-[oklch(0.9_0.1_200)] text-ink",
@@ -1071,7 +1150,9 @@ function Pill({ children, color }: { children: React.ReactNode; color: "lavender
     lime: "bg-[oklch(0.9_0.18_130)] text-ink",
   };
   return (
-    <span className={`font-display rounded-full border-2 border-ink px-2.5 py-0.5 text-[10px] uppercase tracking-[0.18em] ${map[color]}`}>
+    <span
+      className={`font-display rounded-full border-2 border-ink px-2.5 py-0.5 text-[10px] uppercase tracking-[0.18em] ${map[color]}`}
+    >
       {children}
     </span>
   );
@@ -1138,7 +1219,10 @@ function Magnetic({ children, className }: { children: React.ReactNode; classNam
     };
   }, []);
   return (
-    <span ref={ref} className={`block sm:inline-block transition-transform duration-200 ease-out${className ? ` ${className}` : ""}`}>
+    <span
+      ref={ref}
+      className={`block sm:inline-block transition-transform duration-200 ease-out${className ? ` ${className}` : ""}`}
+    >
       {children}
     </span>
   );
