@@ -931,7 +931,7 @@ function Outro() {
           <p className="font-body mt-5 max-w-xl text-[17px] leading-[1.5] text-ink/85">
             Internships, freelance, or a chat about Rust / browsers / game dev — I read everything and reply fast.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Magnetic>
               <a
                 href="mailto:yogya.developer@gmail.com"
@@ -947,7 +947,7 @@ function Outro() {
                 target="_blank"
                 rel="noreferrer"
                 data-cursor="github"
-                className="font-display rounded-full border-2 border-ink bg-paper px-6 py-3 uppercase tracking-[0.22em]"
+                className="font-display block w-full rounded-full border-2 border-ink bg-paper px-6 py-3 text-center uppercase tracking-[0.22em] sm:w-auto"
               >
                 GitHub ↗
               </a>
@@ -958,7 +958,7 @@ function Outro() {
                 target="_blank"
                 rel="noreferrer"
                 data-cursor="linkedin"
-                className="font-display rounded-full border-2 border-ink bg-paper px-6 py-3 uppercase tracking-[0.22em]"
+                className="font-display block w-full rounded-full border-2 border-ink bg-paper px-6 py-3 text-center uppercase tracking-[0.22em] sm:w-auto"
               >
                 LinkedIn ↗
               </a>
@@ -967,7 +967,7 @@ function Outro() {
               <a
                 href="tel:+919650029959"
                 data-cursor="call"
-                className="font-display rounded-full border-2 border-ink bg-paper px-6 py-3 uppercase tracking-[0.22em]"
+                className="font-display block w-full rounded-full border-2 border-ink bg-paper px-6 py-3 text-center uppercase tracking-[0.22em] sm:w-auto"
               >
                 +91 96500 29959
               </a>
@@ -1061,6 +1061,8 @@ function Magnetic({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    // Disable on touch devices — magnetic effect causes layout overlap on mobile
+    if (window.matchMedia("(hover: none)").matches) return;
     const onMove = (e: MouseEvent) => {
       const r = el.getBoundingClientRect();
       const dx = e.clientX - (r.left + r.width / 2);
