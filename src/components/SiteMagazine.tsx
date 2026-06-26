@@ -363,13 +363,19 @@ function TopBar() {
 function CommandPalette() {
   const [open, setOpen] = useState(false);
   const [q, setQ] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const close = () => {
+    setOpen(false);
+    setQ("");
+  };
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
         setOpen(o => !o);
-      } else if (e.key === "Escape") setOpen(false);
+      } else if (e.key === "Escape") close();
     };
     const onOpen = () => setOpen(true);
     window.addEventListener("keydown", onKey);
@@ -379,6 +385,19 @@ function CommandPalette() {
       window.removeEventListener("yc:openPalette", onOpen);
     };
   }, []);
+
+  // Body scroll lock + focus when opened
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    if (open) {
+      // Slight delay so keyboard animation doesn't fight React render
+      const t = setTimeout(() => inputRef.current?.focus(), 80);
+      return () => clearTimeout(t);
+    }
+  }, [open]);
+
+  // Reset scroll lock on unmount
+  useEffect(() => () => { document.body.style.overflow = ""; }, []);
 
   const items = useMemo(() => {
     const base: { kind: string; label: string; href: string; ext?: boolean }[] = [
@@ -394,57 +413,79 @@ function CommandPalette() {
     return base.filter(i => i.label.toLowerCase().includes(f) || i.kind.toLowerCase().includes(f));
   }, [q]);
 
-  if (!open) return null;
   return (
-    <div className="fixed inset-0 z-[300] flex items-start justify-center bg-ink/30 backdrop-blur-sm px-4" onClick={() => setOpen(false)}>
+    <div
+      aria-hidden={!open}
+      className={`fixed inset-0 z-[300] flex items-start justify-center bg-ink/30 backdrop-blur-sm px-4 transition-opacity duration-200 ${
+        open ? "opacity-100" : "opacity-0 pointer-events-none"
+      }`}
+      onClick={close}
+    >
       <div
-        className="mt-[72px] sm:mt-[14vh] w-full max-w-[560px] rounded-2xl overflow-hidden border-2 border-ink bg-paper"
+        className={`mt-16 sm:mt-[14vh] w-full max-w-[560px] overflow-hidden rounded-2xl border-2 border-ink bg-paper transition-all duration-200 ${
+          open ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"
+        }`}
         onClick={e => e.stopPropagation()}
         style={{ boxShadow: "var(--shadow-hard)" }}
       >
-        <div className="flex items-center gap-3 border-b-2 border-ink px-4 py-3">
-          <span className="font-display text-[12px] uppercase tracking-[0.18em] text-ink/60">
-            <span className="hidden sm:inline">⌘K</span>
-            <span className="sm:hidden">Search</span>
+        {/* Header row */}
+        <div className="flex items-center gap-2 border-b-2 border-ink px-3 py-3">
+          {/* Mobile: back arrow close button */}
+          <button
+            onClick={close}
+            aria-label="Close search"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-ink/20 bg-ink/5 text-[16px] text-ink/70 sm:hidden"
+          >
+            ←
+          </button>
+          {/* Desktop: ⌘K label */}
+          <span className="font-display hidden shrink-0 text-[12px] uppercase tracking-[0.18em] text-ink/60 sm:inline">
+            ⌘K
           </span>
           <input
-            autoFocus
+            ref={inputRef}
             value={q}
             onChange={e => setQ(e.target.value)}
             placeholder="Sections, projects, links…"
-            className="font-body w-full bg-transparent text-[15px] outline-none"
+            className="font-body min-w-0 flex-1 bg-transparent text-[15px] outline-none"
             autoComplete="off"
             autoCorrect="off"
             autoCapitalize="off"
             spellCheck={false}
           />
+          {/* Clear button (visible when there's a query) */}
           {q && (
             <button
               onClick={() => setQ("")}
-              className="font-display shrink-0 rounded-full bg-ink/10 px-2 py-0.5 text-[11px] text-ink/60"
+              className="font-display shrink-0 rounded-full bg-ink/10 px-2.5 py-1 text-[11px] text-ink/60"
             >
               ✕
             </button>
           )}
+          {/* Desktop: ESC hint */}
+          <kbd className="font-mono hidden shrink-0 rounded border border-ink/20 bg-paper/60 px-1.5 py-0.5 text-[10px] text-ink/50 sm:inline">
+            ESC
+          </kbd>
         </div>
+        {/* Results list */}
         <ul className="max-h-[55vh] overflow-y-auto p-2">
           {items.length === 0 && (
-            <li className="px-3 py-3 text-sm text-ink/50">No matches. Try “rust”, “django”, or “contact”.</li>
+            <li className="px-3 py-4 text-sm text-ink/50">No matches. Try “rust”, “django”, or “contact”.</li>
           )}
-          {items.map((i, idx) => (
+          {items.map((item, idx) => (
             <li key={idx}>
               <a
-                href={i.href}
-                target={i.ext ? "_blank" : undefined}
-                rel={i.ext ? "noreferrer" : undefined}
-                onClick={() => setOpen(false)}
-                className="flex items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-ink hover:text-paper"
+                href={item.href}
+                target={item.ext ? "_blank" : undefined}
+                rel={item.ext ? "noreferrer" : undefined}
+                onClick={close}
+                className="flex items-center gap-3 rounded-xl px-3 py-3 hover:bg-ink hover:text-paper active:bg-ink active:text-paper"
               >
-                <span className="font-display w-20 text-[10px] uppercase tracking-[0.18em] text-ink/50 group-hover:text-paper/70">
-                  {i.kind}
+                <span className="font-display w-16 shrink-0 text-[10px] uppercase tracking-[0.18em] text-ink/50">
+                  {item.kind}
                 </span>
-                <span className="font-body flex-1 text-[14px]">{i.label}</span>
-                <span className="font-mono text-[11px] opacity-60">↵</span>
+                <span className="font-body flex-1 truncate text-[14px]">{item.label}</span>
+                <span className="font-mono shrink-0 text-[11px] opacity-60">↵</span>
               </a>
             </li>
           ))}
@@ -936,59 +977,55 @@ function Outro() {
   return (
     <section id="outro" className="relative px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[1400px]">
-        <div className="relative overflow-hidden rounded-[36px] border-2 border-ink bg-chrome p-8 pt-16 sm:pt-8 md:p-14" style={{ boxShadow: "var(--shadow-hard)" }}>
-          <span className="font-display absolute right-6 top-6 rounded-full bg-ink px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-paper">
+        <div
+          className="relative overflow-hidden rounded-[28px] sm:rounded-[36px] border-2 border-ink bg-chrome p-6 pt-14 sm:p-8 sm:pt-8 md:p-14"
+          style={{ boxShadow: "var(--shadow-hard)" }}
+        >
+          <span className="font-display absolute right-4 top-4 sm:right-6 sm:top-6 rounded-full bg-ink px-3 py-1 text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-paper">
             Back cover
           </span>
           <Eyebrow inverse>Contact</Eyebrow>
           <h2 className="font-display mt-3 text-[clamp(1.9rem,8vw,8rem)] leading-[0.85]">
             Let&rsquo;s build<br />something <span className="italic">funny.</span>
           </h2>
-          <p className="font-body mt-5 max-w-xl text-[16px] leading-[1.5] text-ink/85">
+          <p className="font-body mt-5 max-w-xl text-[15px] sm:text-[16px] leading-[1.5] text-ink/85">
             Internships, freelance, or a chat about Rust / browsers / game dev — I read everything and reply fast.
           </p>
+          {/* Buttons: full-width stack on mobile, inline row on sm+ */}
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Magnetic>
-              <a
-                href="mailto:yogya.developer@gmail.com"
-                data-cursor="email"
-                className="font-display block rounded-full border-2 border-ink bg-ink px-6 py-3.5 text-center text-paper uppercase tracking-[0.18em] sm:tracking-[0.22em]"
-              >
-                <span className="hidden sm:inline">yogya.developer@gmail.com</span>
-                <span className="sm:hidden">✉ Email me</span>
-              </a>
-            </Magnetic>
-            <Magnetic>
-              <a
-                href="https://github.com/YogyaChugh"
-                target="_blank"
-                rel="noreferrer"
-                data-cursor="github"
-                className="font-display block rounded-full border-2 border-ink bg-paper px-6 py-3.5 text-center uppercase tracking-[0.22em]"
-              >
-                GitHub ↗
-              </a>
-            </Magnetic>
-            <Magnetic>
-              <a
-                href="https://linkedin.com/in/yogyachugh"
-                target="_blank"
-                rel="noreferrer"
-                data-cursor="linkedin"
-                className="font-display block rounded-full border-2 border-ink bg-paper px-6 py-3.5 text-center uppercase tracking-[0.22em]"
-              >
-                LinkedIn ↗
-              </a>
-            </Magnetic>
-            <Magnetic>
-              <a
-                href="tel:+919650029959"
-                data-cursor="call"
-                className="font-display block rounded-full border-2 border-ink bg-paper px-6 py-3.5 text-center uppercase tracking-[0.22em]"
-              >
-                +91 96500 29959
-              </a>
-            </Magnetic>
+            <a
+              href="mailto:yogya.developer@gmail.com"
+              data-cursor="email"
+              className="font-display rounded-full border-2 border-ink bg-ink px-6 py-4 text-center text-paper uppercase tracking-[0.22em] transition-opacity hover:opacity-80"
+            >
+              <span className="hidden sm:inline">yogya.developer@gmail.com</span>
+              <span className="sm:hidden">✉ Email me</span>
+            </a>
+            <a
+              href="https://github.com/YogyaChugh"
+              target="_blank"
+              rel="noreferrer"
+              data-cursor="github"
+              className="font-display rounded-full border-2 border-ink bg-paper px-6 py-4 text-center uppercase tracking-[0.22em] transition-colors hover:bg-ink hover:text-paper"
+            >
+              GitHub ↗
+            </a>
+            <a
+              href="https://linkedin.com/in/yogyachugh"
+              target="_blank"
+              rel="noreferrer"
+              data-cursor="linkedin"
+              className="font-display rounded-full border-2 border-ink bg-paper px-6 py-4 text-center uppercase tracking-[0.22em] transition-colors hover:bg-ink hover:text-paper"
+            >
+              LinkedIn ↗
+            </a>
+            <a
+              href="tel:+919650029959"
+              data-cursor="call"
+              className="font-display rounded-full border-2 border-ink bg-paper px-6 py-4 text-center uppercase tracking-[0.22em] transition-colors hover:bg-ink hover:text-paper"
+            >
+              +91 96500 29959
+            </a>
           </div>
         </div>
       </div>
