@@ -459,6 +459,20 @@ function CommandPalette() {
             ref={inputRef}
             value={q}
             onChange={(e) => setQ(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && items.length > 0) {
+                e.preventDefault();
+                const item = items[0];
+                close();
+                setTimeout(() => {
+                  if (item.ext) {
+                    window.open(item.href, "_blank", "noreferrer");
+                  } else {
+                    window.location.hash = item.href;
+                  }
+                }, 100);
+              }
+            }}
             placeholder="Sections, projects, links…"
             className="font-body min-w-0 flex-1 bg-transparent text-[15px] outline-none"
             autoComplete="off"
@@ -499,9 +513,17 @@ function CommandPalette() {
             <li key={idx}>
               <a
                 href={item.href}
-                target={item.ext ? "_blank" : undefined}
-                rel={item.ext ? "noreferrer" : undefined}
-                onClick={close}
+                onClick={(e) => {
+                  e.preventDefault();
+                  close();
+                  setTimeout(() => {
+                    if (item.ext) {
+                      window.open(item.href, "_blank", "noreferrer");
+                    } else {
+                      window.location.hash = item.href;
+                    }
+                  }, 100);
+                }}
                 className="flex items-center gap-3 rounded-xl px-3 py-3 hover:bg-ink hover:text-paper active:bg-ink active:text-paper"
               >
                 <span className="font-display w-16 shrink-0 text-[10px] uppercase tracking-[0.18em] text-ink/50">
