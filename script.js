@@ -777,34 +777,62 @@ document.addEventListener("DOMContentLoaded", () => {
       const overlay = document.getElementById("timberly-overlay");
       const statusEl = document.getElementById("timberly-status");
       const host = document.getElementById("timberly-host");
+      const fsBtn = document.getElementById("timberly-fullscreen-btn");
       if (!startBtn || !host) return;
 
       let loaded = false;
+      let iframeEl = null;
 
       function loadAndStart() {
         if (loaded) return;
         startBtn.textContent = "Loading…";
         startBtn.disabled = true;
-        statusEl.textContent = "Booting Python/pygame runtime — first load can take a moment…";
+        statusEl.textContent = "Booting Python/pygame runtime — first load can take a minute, please be patient…";
 
         const iframe = document.createElement("iframe");
         iframe.src = "timberly/timberly.html";
         iframe.title = "Timberly — play in browser";
         iframe.allow = "autoplay; fullscreen; gamepad; gyroscope; accelerometer; cross-origin-isolated";
+        iframe.allowFullscreen = true;
         iframe.sandbox = "allow-scripts allow-same-origin allow-pointer-lock allow-forms allow-popups";
         iframe.style.width = "100%";
         iframe.style.height = "100%";
         iframe.style.border = "0";
         iframe.addEventListener("load", () => {
           statusEl.textContent = "";
+          overlay.classList.add("hidden");
+          // Best-effort cleanup of the embedded game page's own chrome —
+          // pygbag/SDL builds often leave a default canvas border and can
+          // hide the OS cursor. Only works because the game is same-origin.
+          try {
+            const doc = iframe.contentDocument;
+            if (doc) {
+              const fixStyle = doc.createElement("style");
+              fixStyle.textContent = `
+                html, body { margin:0; padding:0; overflow:hidden; cursor:auto !important; }
+                canvas { border:none !important; outline:none !important; display:block; cursor:auto !important; }
+              `;
+              doc.head.appendChild(fixStyle);
+            }
+          } catch (e) { /* cross-origin or not yet ready — ignore */ }
         });
 
         host.appendChild(iframe);
+        iframeEl = iframe;
         loaded = true;
-        overlay.classList.add("hidden");
       }
 
       startBtn.addEventListener("click", loadAndStart);
+
+      if (fsBtn) {
+        fsBtn.addEventListener("click", () => {
+          if (iframeEl && iframeEl.requestFullscreen) {
+            iframeEl.requestFullscreen();
+          } else if (iframeEl && iframeEl.webkitRequestFullscreen) {
+            iframeEl.webkitRequestFullscreen();
+          }
+        });
+      }
     })();
 
     // ── Hangman — lazy-loaded WASM terminal ──────────────────
@@ -814,10 +842,39 @@ document.addEventListener("DOMContentLoaded", () => {
       const restartBtn = document.getElementById("hangman-restart-btn");
       const statusEl = document.getElementById("hangman-status");
       const termHost = document.getElementById("hangman-terminal");
+      const keyboardHost = document.getElementById("hangman-keyboard");
+      const fsBtn = document.getElementById("hangman-fullscreen-btn");
+      const stageEl = document.getElementById("stage-hangman");
       if (!startBtn || !termHost) return;
 
       let loaded = false;
       let term = null;
+
+      function sendChar(ch) {
+        if (!term) return;
+        const code = ch === "\n" ? 10 : ch.charCodeAt(0);
+        window.__hangmanInput.push(code);
+        term.write(ch === "\n" ? "\r\n" : ch);
+        term.focus();
+      }
+
+      function buildKeyboard() {
+        if (!keyboardHost || keyboardHost.childElementCount) return;
+        "abcdefghijklmnopqrstuvwxyz".split("").forEach((letter) => {
+          const btn = document.createElement("button");
+          btn.textContent = letter;
+          btn.className = "font-mono uppercase rounded-md border-2 border-ink/70 text-ink text-[12px] h-9 min-w-[28px] px-1 hover:bg-ink hover:text-paper transition-colors";
+          btn.style.background = "#fff5fb";
+          btn.addEventListener("click", () => sendChar(letter));
+          keyboardHost.appendChild(btn);
+        });
+        const enterBtn = document.createElement("button");
+        enterBtn.textContent = "Enter ⏎";
+        enterBtn.className = "font-mono rounded-md border-2 border-ink/70 text-ink text-[12px] h-9 px-3 hover:bg-ink hover:text-paper transition-colors";
+        enterBtn.style.background = "#fff5fb";
+        enterBtn.addEventListener("click", () => sendChar("\n"));
+        keyboardHost.appendChild(enterBtn);
+      }
 
       function loadScript(src) {
         return new Promise((resolve, reject) => {
@@ -840,15 +897,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
       function bootGame() {
         window.__hangmanInput = [];
-        statusEl.textContent = "Booting game…";
+        statusEl.textContent = "Booting game — please be patient, this can take a moment…";
+        const bootTimeout = setTimeout(() => {
+          statusEl.textContent = "Still loading… if this takes too long, try reloading the page.";
+        }, 12000);
         window.createHangmanModule({
           print: (text) => term.write(text + "\r\n"),
           printErr: (text) => term.write("\x1b[31m" + text + "\x1b[0m\r\n"),
         }).then(() => {
-          statusEl.textContent = "";
+          clearTimeout(bootTimeout);
+          statusEl.textContent = "Type a letter + Enter to guess, or tap a letter below ↓";
           restartBtn.classList.remove("hidden");
           term.focus();
         }).catch((err) => {
+          clearTimeout(bootTimeout);
           statusEl.textContent = "Failed to start: " + err;
         });
       }
@@ -857,11 +919,16 @@ document.addEventListener("DOMContentLoaded", () => {
         if (loaded) { bootGame(); return; }
         startBtn.textContent = "Loading…";
         startBtn.disabled = true;
+        statusEl.textContent = "First load can take a moment, please be patient…";
         try {
-          await loadCss("https://cdnjs.cloudflare.com/ajax/libs/xterm/5.3.0/css/xterm.min.css");
-          await loadScript("https://cdnjs.cloudflare.com/ajax/libs/xterm/5.3.0/lib/xterm.min.js");
-          await loadScript("https://cdnjs.cloudflare.com/ajax/libs/xterm-addon-fit/0.8.0/lib/xterm-addon-fit.min.js");
+          await loadCss("./vendor/xterm.min.css");
+          await loadScript("./vendor/xterm.min.js");
+          await loadScript("./vendor/xterm-addon-fit.min.js");
           await loadScript("hangman.js");
+
+          if (typeof window.Terminal === "undefined" || typeof window.FitAddon === "undefined") {
+            throw new Error("xterm failed to load from vendor/");
+          }
 
           term = new window.Terminal({
             cursorBlink: true,
@@ -887,11 +954,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
           loaded = true;
           overlay.classList.add("hidden");
+          buildKeyboard();
           bootGame();
         } catch (err) {
           startBtn.textContent = "▶ Play Hangman";
           startBtn.disabled = false;
-          statusEl.textContent = "Couldn't load the game — check your connection.";
+          statusEl.textContent = "Couldn't load the game — make sure the vendor/ folder is uploaded alongside script.js.";
         }
       }
 
@@ -900,6 +968,17 @@ document.addEventListener("DOMContentLoaded", () => {
         term.reset();
         bootGame();
       });
+
+      if (fsBtn) {
+        fsBtn.addEventListener("click", () => {
+          const el = stageEl || termHost;
+          if (el.requestFullscreen) {
+            el.requestFullscreen();
+          } else if (el.webkitRequestFullscreen) {
+            el.webkitRequestFullscreen();
+          }
+        });
+      }
     })();
 
 });

@@ -493,18 +493,25 @@
           <span class="h-2.5 w-2.5 rounded-full" style="background:#ff5f56;"></span>
           <span class="h-2.5 w-2.5 rounded-full" style="background:#ffbd2e;"></span>
           <span class="h-2.5 w-2.5 rounded-full" style="background:#27c93f;"></span>
-          <span class="font-mono ml-2 text-[11px] uppercase tracking-[0.18em] text-ink/50">timberly — python · pygame · wasm</span>
+          <span class="font-mono ml-2 text-[11px] uppercase tracking-[0.18em] text-ink/50">timberly</span>
+          <button id="timberly-fullscreen-btn" class="ml-auto font-display rounded-full border-2 border-ink px-3 py-1 text-[10px] uppercase tracking-[0.16em] transition-colors hover:bg-ink hover:text-paper" style="background: var(--paper);">⛶ Fullscreen</button>
         </div>
-        <div class="relative" style="background:#15151c; aspect-ratio: 16/9; max-height: 70vh;">
+        <div class="relative flex items-center justify-center w-full" style="background:#15151c; height: min(70vh, 600px); min-height: 320px; background-image:url('timberly/loading_extra.png'); background-size:cover; background-position:center;">
           <div id="timberly-host" class="w-full h-full"></div>
           <div id="timberly-overlay" class="absolute inset-0 flex flex-col items-center justify-center gap-4 text-center px-6" style="background:#15151c;">
             <span class="font-display text-[13px] uppercase tracking-[0.2em]" style="color:#ff6eb4;">My first game, click to load it</span>
             <button id="timberly-start-btn" class="font-display rounded-full border-2 px-6 py-2.5 text-[12px] uppercase tracking-[0.2em] transition-colors" style="border-color:#ff6eb4; color:#ff6eb4;">▶ Play Timberly</button>
-            <span class="font-mono text-[11px]" style="color:#666;">loads only when you ask — keeps the page light</span>
+            <span class="font-mono text-[11px]" style="color:#666;">loads only when you ask — first load can take a minute, please be patient</span>
           </div>
         </div>
         <div class="flex items-center justify-between gap-3 px-4 py-3 border-t-2 border-ink">
           <span id="timberly-status" class="font-mono text-[11px] text-ink/50"></span>
+        </div>
+        <div class="flex flex-wrap items-center gap-2 px-4 pb-4">
+          <span class="font-display text-[11px] uppercase tracking-[0.18em] text-ink/50 mr-1">Download:</span>
+          <a href="https://github.com/YogyaChugh/Timberly/releases/download/v2.0/Timberly.exe" target="_blank" rel="noreferrer" class="font-display rounded-full border-2 border-ink px-3.5 py-1.5 text-[11px] uppercase tracking-[0.16em] transition-colors hover:bg-ink hover:text-paper" style="background: var(--paper);">Windows</a>
+          <a href="https://github.com/YogyaChugh/Timberly/releases/download/v2.0/Timberly-Linux" target="_blank" rel="noreferrer" class="font-display rounded-full border-2 border-ink px-3.5 py-1.5 text-[11px] uppercase tracking-[0.16em] transition-colors hover:bg-ink hover:text-paper" style="background: var(--paper);">Linux</a>
+          <a href="https://github.com/YogyaChugh/Timberly/releases/download/v2.0/Timberly-Mac" target="_blank" rel="noreferrer" class="font-display rounded-full border-2 border-ink px-3.5 py-1.5 text-[11px] uppercase tracking-[0.16em] transition-colors hover:bg-ink hover:text-paper" style="background: var(--paper);">macOS</a>
         </div>
       </div>
 
@@ -514,19 +521,26 @@
           <span class="h-2.5 w-2.5 rounded-full" style="background:#ff5f56;"></span>
           <span class="h-2.5 w-2.5 rounded-full" style="background:#ffbd2e;"></span>
           <span class="h-2.5 w-2.5 rounded-full" style="background:#27c93f;"></span>
-          <span class="font-mono ml-2 text-[11px] uppercase tracking-[0.18em] text-ink/50">hangman.c — wasm</span>
+          <span class="font-mono ml-2 text-[11px] uppercase tracking-[0.18em] text-ink/50">hangman</span>
+          <button id="hangman-fullscreen-btn" class="ml-auto font-display rounded-full border-2 border-ink px-3 py-1 text-[10px] uppercase tracking-[0.16em] transition-colors hover:bg-ink hover:text-paper" style="background: var(--paper);">⛶ Fullscreen</button>
         </div>
         <div class="relative" style="background:#15151c;">
           <div id="hangman-terminal" class="w-full" style="height: 520px;"></div>
+          <div id="hangman-keyboard" class="flex flex-wrap gap-1.5 justify-center px-3 pb-3 pt-1" style="background:#15151c;"></div>
           <div id="hangman-overlay" class="absolute inset-0 flex flex-col items-center justify-center gap-4 text-center px-6" style="background:#15151c;">
             <span class="font-display text-[13px] uppercase tracking-[0.2em]" style="color:#ff6eb4;">Click to load the game</span>
             <button id="hangman-start-btn" class="font-display rounded-full border-2 px-6 py-2.5 text-[12px] uppercase tracking-[0.2em] transition-colors" style="border-color:#ff6eb4; color:#ff6eb4;">▶ Play Hangman</button>
-            <span class="font-mono text-[11px]" style="color:#666;">loads only when you ask — keeps the page light</span>
+            <span class="font-mono text-[11px]" style="color:#666;">loads only when you ask — first load can take a moment, please be patient</span>
           </div>
         </div>
         <div class="flex items-center justify-between gap-3 px-4 py-3 border-t-2 border-ink">
           <span id="hangman-status" class="font-mono text-[11px] text-ink/50"></span>
           <button id="hangman-restart-btn" class="font-display rounded-full border-2 border-ink px-4 py-1.5 text-[11px] uppercase tracking-[0.18em] transition-colors hover:bg-ink hover:text-paper hidden" style="background: var(--paper);">Restart</button>
+        </div>
+        <div class="flex flex-wrap items-center gap-2 px-4 pb-4">
+          <span class="font-display text-[11px] uppercase tracking-[0.18em] text-ink/50 mr-1">Download:</span>
+          <a href="https://github.com/YogyaChugh/Hangman-Game/releases/download/v1.0.0/Hangman.exe" target="_blank" rel="noreferrer" class="font-display rounded-full border-2 border-ink px-3.5 py-1.5 text-[11px] uppercase tracking-[0.16em] transition-colors hover:bg-ink hover:text-paper" style="background: var(--paper);">Windows</a>
+          <a href="https://github.com/YogyaChugh/Hangman-Game/releases/download/v1.0.0/Hangman-Linux" target="_blank" rel="noreferrer" class="font-display rounded-full border-2 border-ink px-3.5 py-1.5 text-[11px] uppercase tracking-[0.16em] transition-colors hover:bg-ink hover:text-paper" style="background: var(--paper);">Linux</a>
         </div>
       </div>
     </div>

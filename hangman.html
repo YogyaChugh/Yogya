@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Hangman — Play in Browser</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/xterm/5.3.0/css/xterm.min.css" />
+<link rel="stylesheet" href="./vendor/xterm.min.css" />
 <style>
   :root { --bg:#0d0d12; --panel:#15151c; --accent:#ff6eb4; --accent2:#c084fc; }
   * { box-sizing: border-box; }
@@ -77,25 +77,42 @@
 </head>
 <body>
   <h1>Hangman — live in your browser</h1>
-  <p class="sub">The original C terminal game, compiled to WebAssembly. Click the terminal, then type a single letter and press Enter to guess.</p>
+  <p class="sub">The original C terminal game, compiled to WebAssembly. Click the terminal, then type a single letter and press Enter to guess. First load can take a moment — please be patient.</p>
 
   <div id="term-wrap">
     <div id="term-bar">
       <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-      <span class="label">hangman.c — wasm</span>
+      <span class="label">hangman.c</span>
     </div>
     <div id="terminal"></div>
+    <div id="keyboard"></div>
   </div>
+
+  <style>
+    #keyboard { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; padding: 12px 4px 2px; }
+    #keyboard button {
+      font: inherit; font-size: 0.78rem; min-width: 30px; height: 36px;
+      border: 2px solid #2a2a35; border-radius: 6px; background: #1c1c26; color: #eee;
+      cursor: pointer; text-transform: uppercase;
+    }
+    #keyboard button:hover { background: var(--accent); color: #1a0a14; border-color: var(--accent); }
+    #keyboard button.wide { min-width: 70px; }
+  </style>
 
   <div id="status">Loading…</div>
   <button id="restart-btn" style="display:none;">Restart Game</button>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/5.3.0/lib/xterm.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xterm-addon-fit/0.8.0/lib/xterm-addon-fit.min.js"></script>
+<script src="./vendor/xterm.min.js"></script>
+<script src="./vendor/xterm-addon-fit.min.js"></script>
 <script src="./hangman.js"></script>
 <script>
   const statusEl = document.getElementById("status");
   const restartBtn = document.getElementById("restart-btn");
+
+  if (typeof Terminal === "undefined" || typeof FitAddon === "undefined") {
+    statusEl.textContent = "Failed to load terminal library (vendor/xterm.min.js). Check that the vendor/ folder was uploaded alongside hangman.html.";
+    throw new Error("xterm failed to load");
+  }
 
   const term = new Terminal({
     cursorBlink: true,
@@ -125,6 +142,30 @@
     }
   });
 
+  function sendChar(ch) {
+    const code = ch === "\n" ? 10 : ch.charCodeAt(0);
+    window.__hangmanInput.push(code);
+    term.write(ch === "\n" ? "\r\n" : ch);
+    term.focus();
+  }
+
+  function buildKeyboard() {
+    const kb = document.getElementById("keyboard");
+    kb.innerHTML = "";
+    "abcdefghijklmnopqrstuvwxyz".split("").forEach((letter) => {
+      const btn = document.createElement("button");
+      btn.textContent = letter;
+      btn.addEventListener("click", () => sendChar(letter));
+      kb.appendChild(btn);
+    });
+    const enterBtn = document.createElement("button");
+    enterBtn.textContent = "Enter ⏎";
+    enterBtn.className = "wide";
+    enterBtn.addEventListener("click", () => sendChar("\n"));
+    kb.appendChild(enterBtn);
+  }
+  buildKeyboard();
+
   let started = false;
 
   function boot() {
@@ -133,7 +174,7 @@
       print: (text) => term.write(text + "\r\n"),
       printErr: (text) => term.write("\x1b[31m" + text + "\x1b[0m\r\n"),
     }).then(() => {
-      statusEl.textContent = "";
+      statusEl.textContent = "Type a letter + Enter to guess, or tap a letter below ↓";
       restartBtn.style.display = "inline-block";
       term.focus();
     }).catch((err) => {
