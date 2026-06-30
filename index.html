@@ -47,6 +47,87 @@
     ]
   }
   </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": "https://yogya.dev/#blog",
+    "name": "Yogya Chugh — Writing",
+    "url": "https://yogya.dev/#blog",
+    "author": { "@type": "Person", "name": "Yogya Chugh", "url": "https://yogya.dev/" },
+    "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "My First Open Source Contribution",
+        "description": "Contributing to a massive open-source project like Django can feel intimidating. Here is how I landed my first merged PR.",
+        "url": "https://yogya.dev/blogs/first_open_source.html",
+        "author": { "@type": "Person", "name": "Yogya Chugh" }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "450 hours, 4 ships, one laptop",
+        "description": "What three months of non-stop building actually feels like — the grind, the projects, and community interactions.",
+        "url": "https://yogya.dev/blogs/summer_of_making.html",
+        "author": { "@type": "Person", "name": "Yogya Chugh" }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "How I cracked the DEX code",
+        "description": "Why AnyStudio removes unnecessary native restrictions entirely and what the DEX format actually looks like up close.",
+        "url": "https://yogya.dev/blogs/classes_dex.html",
+        "author": { "@type": "Person", "name": "Yogya Chugh" }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Implementing the WhatWG DOM in C++ for my browser",
+        "description": "Preorder DFS, event dispatch, and the parts of the spec nobody warns you about.",
+        "url": "https://yogya.dev/blogs/whatwg_dom.html",
+        "author": { "@type": "Person", "name": "Yogya Chugh" }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Running a real product on $7/month",
+        "description": "How Vardhman Saathi stays on free tiers using Supabase + R2 + Render.",
+        "url": "https://yogya.dev/blogs/vardhman.html",
+        "author": { "@type": "Person", "name": "Yogya Chugh" }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "https://yogya.dev/#projects",
+    "name": "Yogya Chugh — Projects",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "item": { "@type": "SoftwareSourceCode", "name": "AnyStudio", "description": "Native desktop IDE in Rust + egui for building Android apps with a visual UI builder, compiling straight to APKs via a direct DEX pipeline.", "url": "https://github.com/YogyaChugh", "codeRepository": "https://github.com/YogyaChugh", "programmingLanguage": "Rust" } },
+      { "@type": "ListItem", "position": 2, "item": { "@type": "SoftwareSourceCode", "name": "Webelo", "description": "C++ DOM library and HTML visualiser strictly following the WhatWG DOM Standard, foundation for an upcoming browser.", "url": "https://github.com/YogyaChugh/Webelo", "codeRepository": "https://github.com/YogyaChugh/Webelo", "programmingLanguage": "C++" } },
+      { "@type": "ListItem", "position": 3, "item": { "@type": "SoftwareApplication", "name": "Vardhman Saathi", "description": "Production business suite for a salesperson credit system, with desktop and Android apps sharing one TypeScript codebase.", "url": "https://vardhmansaathi.shop", "applicationCategory": "BusinessApplication" } },
+      { "@type": "ListItem", "position": 4, "item": { "@type": "SoftwareSourceCode", "name": "AgroLens", "description": "Computer-vision model classifying plant-leaf diseases, including dataset pipeline, training, and deployment.", "url": "https://github.com/YogyaChughCoder/AgroLens", "programmingLanguage": "Python" } },
+      { "@type": "ListItem", "position": 5, "item": { "@type": "VideoGame", "name": "Snake Hustle", "description": "Browser-based snake game.", "url": "https://snakehustle.netlify.app" } },
+      { "@type": "ListItem", "position": 6, "item": { "@type": "VideoGame", "name": "Timberly", "description": "Casual lumberjack game with multiplayer support, playable in-browser with downloads for Windows, macOS, and Linux.", "url": "https://yogya-chugh.itch.io/timberly" } },
+      { "@type": "ListItem", "position": 7, "item": { "@type": "SoftwareSourceCode", "name": "Webber", "description": "Desktop crawler that downloads any website for offline rendering, built with Pygame, PyWebview, and BeautifulSoup.", "url": "https://github.com/YogyaChugh/Webber", "programmingLanguage": "Python" } },
+      { "@type": "ListItem", "position": 8, "item": { "@type": "SoftwareSourceCode", "name": "SIH Travel Security", "description": "Blockchain system for encrypted tourist tracking with SSO to local authorities.", "url": "https://github.com/YogyaChugh" } },
+      { "@type": "ListItem", "position": 9, "item": { "@type": "SoftwareSourceCode", "name": "Django · Open Source", "description": "Merged pull requests into Django core and third-party libraries.", "url": "https://github.com/django/django/pulls?q=is%3Apr+author%3Ayogyachugh+" } }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": "https://yogya.dev/#games",
+    "name": "Yogya Chugh — Browser Games",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "item": { "@type": "VideoGame", "name": "Timberly", "description": "Casual lumberjack game playable directly in the browser with a realtime leaderboard.", "url": "https://yogya.dev/#games" } },
+      { "@type": "ListItem", "position": 2, "item": { "@type": "VideoGame", "name": "Hangman", "description": "Classic terminal-style hangman game playable directly in the browser.", "url": "https://yogya.dev/#games" } }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -71,20 +152,20 @@
 
   <header class="fixed inset-x-0 top-0 z-40">
     <div class="mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-4 py-3 md:px-8">
-      <a href="#cover" data-cursor="top" class="flex items-center gap-2 rounded-full border border-ink/20 px-3 py-1.5 backdrop-blur-md" style="background: rgba(253,240,252,0.75);">
+      <a href="#home" data-cursor="top" class="flex items-center gap-2 rounded-full border border-ink/20 px-3 py-1.5 backdrop-blur-md" style="background: rgba(253,240,252,0.75);">
         <span class="block h-2.5 w-2.5 rounded-full bg-chrome"></span>
         <span class="font-display text-[12px] uppercase tracking-[0.22em]">Yogya Chugh</span>
       </a>
       <nav class="hidden items-center gap-0 rounded-full border border-ink/20 p-1 backdrop-blur-md md:flex" style="background: rgba(253,240,252,0.75);">
-        <a href="#cover"    class="font-display rounded-full px-3 py-1.5 text-[12px] uppercase tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink hover:text-paper">Home</a>
-        <a href="#feature"  class="font-display rounded-full px-3 py-1.5 text-[12px] uppercase tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink hover:text-paper">About</a>
-        <a href="#kit"      class="font-display rounded-full px-3 py-1.5 text-[12px] uppercase tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink hover:text-paper">Stack</a>
-        <a href="#ledger"   class="font-display rounded-full px-3 py-1.5 text-[12px] uppercase tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink hover:text-paper">Experience</a>
+        <a href="#home"    class="font-display rounded-full px-3 py-1.5 text-[12px] uppercase tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink hover:text-paper">Home</a>
+        <a href="#about"  class="font-display rounded-full px-3 py-1.5 text-[12px] uppercase tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink hover:text-paper">About</a>
+        <a href="#stack"      class="font-display rounded-full px-3 py-1.5 text-[12px] uppercase tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink hover:text-paper">Stack</a>
+        <a href="#experience"   class="font-display rounded-full px-3 py-1.5 text-[12px] uppercase tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink hover:text-paper">Experience</a>
         <a href="#projects" class="font-display rounded-full px-3 py-1.5 text-[12px] uppercase tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink hover:text-paper">Projects</a>
-        <a href="#hangman-play" class="font-display rounded-full px-3 py-1.5 text-[12px] uppercase tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink hover:text-paper">Play</a>
-        <a href="#trophies" class="font-display rounded-full px-3 py-1.5 text-[12px] uppercase tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink hover:text-paper">Achievements</a>
-        <a href="#desk"     class="font-display rounded-full px-3 py-1.5 text-[12px] uppercase tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink hover:text-paper">Blogs</a>
-        <a href="#outro"    class="font-display rounded-full px-3 py-1.5 text-[12px] uppercase tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink hover:text-paper">Contact</a>
+        <a href="#games" class="font-display rounded-full px-3 py-1.5 text-[12px] uppercase tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink hover:text-paper">Play</a>
+        <a href="#achievements" class="font-display rounded-full px-3 py-1.5 text-[12px] uppercase tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink hover:text-paper">Achievements</a>
+        <a href="#blog"     class="font-display rounded-full px-3 py-1.5 text-[12px] uppercase tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink hover:text-paper">Blogs</a>
+        <a href="#contact"    class="font-display rounded-full px-3 py-1.5 text-[12px] uppercase tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink hover:text-paper">Contact</a>
       </nav>
       <div class="flex items-center gap-2">
         <button data-cursor="⌘K" id="btn-cmd" class="flex items-center gap-2 rounded-full border border-ink/20 px-3 py-1.5 backdrop-blur-md" style="background: rgba(253,240,252,0.75);">
@@ -98,20 +179,20 @@
     </div>
     <div id="mobile-menu" class="mx-4 mt-1 overflow-hidden rounded-2xl border-2 border-ink hidden md:hidden" style="background: var(--paper); box-shadow: var(--shadow-hard);">
       <nav class="flex flex-col p-2">
-        <a href="#cover"    class="mobile-nav-link font-display rounded-xl px-4 py-3 text-[13px] uppercase tracking-[0.18em] text-ink/80 transition-colors hover:bg-ink hover:text-paper">Home</a>
-        <a href="#feature"  class="mobile-nav-link font-display rounded-xl px-4 py-3 text-[13px] uppercase tracking-[0.18em] text-ink/80 transition-colors hover:bg-ink hover:text-paper">About</a>
-        <a href="#kit"      class="mobile-nav-link font-display rounded-xl px-4 py-3 text-[13px] uppercase tracking-[0.18em] text-ink/80 transition-colors hover:bg-ink hover:text-paper">Stack</a>
-        <a href="#ledger"   class="mobile-nav-link font-display rounded-xl px-4 py-3 text-[13px] uppercase tracking-[0.18em] text-ink/80 transition-colors hover:bg-ink hover:text-paper">Experience</a>
+        <a href="#home"    class="mobile-nav-link font-display rounded-xl px-4 py-3 text-[13px] uppercase tracking-[0.18em] text-ink/80 transition-colors hover:bg-ink hover:text-paper">Home</a>
+        <a href="#about"  class="mobile-nav-link font-display rounded-xl px-4 py-3 text-[13px] uppercase tracking-[0.18em] text-ink/80 transition-colors hover:bg-ink hover:text-paper">About</a>
+        <a href="#stack"      class="mobile-nav-link font-display rounded-xl px-4 py-3 text-[13px] uppercase tracking-[0.18em] text-ink/80 transition-colors hover:bg-ink hover:text-paper">Stack</a>
+        <a href="#experience"   class="mobile-nav-link font-display rounded-xl px-4 py-3 text-[13px] uppercase tracking-[0.18em] text-ink/80 transition-colors hover:bg-ink hover:text-paper">Experience</a>
         <a href="#projects" class="mobile-nav-link font-display rounded-xl px-4 py-3 text-[13px] uppercase tracking-[0.18em] text-ink/80 transition-colors hover:bg-ink hover:text-paper">Projects</a>
-        <a href="#hangman-play" class="mobile-nav-link font-display rounded-xl px-4 py-3 text-[13px] uppercase tracking-[0.18em] text-ink/80 transition-colors hover:bg-ink hover:text-paper">Play</a>
-        <a href="#trophies" class="mobile-nav-link font-display rounded-xl px-4 py-3 text-[13px] uppercase tracking-[0.18em] text-ink/80 transition-colors hover:bg-ink hover:text-paper">Achievements</a>
-        <a href="#desk"     class="mobile-nav-link font-display rounded-xl px-4 py-3 text-[13px] uppercase tracking-[0.18em] text-ink/80 transition-colors hover:bg-ink hover:text-paper">Blogs</a>
-        <a href="#outro"    class="mobile-nav-link font-display rounded-xl px-4 py-3 text-[13px] uppercase tracking-[0.18em] text-ink/80 transition-colors hover:bg-ink hover:text-paper">Contact</a>
+        <a href="#games" class="mobile-nav-link font-display rounded-xl px-4 py-3 text-[13px] uppercase tracking-[0.18em] text-ink/80 transition-colors hover:bg-ink hover:text-paper">Play</a>
+        <a href="#achievements" class="mobile-nav-link font-display rounded-xl px-4 py-3 text-[13px] uppercase tracking-[0.18em] text-ink/80 transition-colors hover:bg-ink hover:text-paper">Achievements</a>
+        <a href="#blog"     class="mobile-nav-link font-display rounded-xl px-4 py-3 text-[13px] uppercase tracking-[0.18em] text-ink/80 transition-colors hover:bg-ink hover:text-paper">Blogs</a>
+        <a href="#contact"    class="mobile-nav-link font-display rounded-xl px-4 py-3 text-[13px] uppercase tracking-[0.18em] text-ink/80 transition-colors hover:bg-ink hover:text-paper">Contact</a>
       </nav>
     </div>
   </header>
 
-  <section id="cover" class="relative px-4 pb-10 pt-28 md:px-8 md:pt-32">
+  <section id="home" class="relative px-4 pb-10 pt-28 md:px-8 md:pt-32">
     <div class="mx-auto max-w-[1400px]">
       <div class="flex flex-wrap items-end justify-between gap-2 border-b-2 border-ink pb-3">
         <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
@@ -190,7 +271,7 @@
     </div>
   </div>
 
-  <section id="feature" class="relative px-4 py-14 md:px-8 md:py-20">
+  <section id="about" class="relative px-4 py-14 md:px-8 md:py-20">
     <div class="mx-auto grid max-w-[1400px] grid-cols-12 gap-6">
       <aside class="col-span-12 lg:col-span-4">
         <div class="sticky top-28">
@@ -226,7 +307,7 @@
     </div>
   </section>
 
-  <section id="kit" class="relative px-4 py-14 md:px-8 md:py-20">
+  <section id="stack" class="relative px-4 py-14 md:px-8 md:py-20">
     <div class="mx-auto max-w-[1400px]">
       <div class="flex flex-wrap items-end justify-between gap-4 border-b-2 border-ink pb-4">
         <div>
@@ -301,7 +382,7 @@
     </div>
   </section>
 
-  <section id="ledger" class="relative px-4 py-14 md:px-8 md:py-20">
+  <section id="experience" class="relative px-4 py-14 md:px-8 md:py-20">
     <div class="mx-auto max-w-[1400px]">
       <div class="flex flex-wrap items-end justify-between gap-3 border-b-2 border-ink pb-4">
         <div>
@@ -474,7 +555,7 @@
     </div>
   </div>
 
-  <section id="hangman-play" class="relative px-4 py-14 md:px-8 md:py-20">
+  <section id="games" class="relative px-4 py-14 md:px-8 md:py-20">
     <div class="mx-auto max-w-[1400px]">
       <div class="flex flex-wrap items-end justify-between gap-3 border-b-2 border-ink pb-4">
         <div>
@@ -483,7 +564,7 @@
           </span>
           <h2 class="font-display mt-2 text-[clamp(2.4rem,5vw,4rem)] leading-[0.95]">Actually,<br>play one.</h2>
         </div>
-        <p class="max-w-sm text-[13px] text-ink/60">Two games, running right here — no download. Pick one below.</p>
+        <p class="max-w-sm text-[13px] text-ink/60">Simple and kiddo style, but close to my heart, since my first 2 games :).</p>
       </div>
 
       <div class="mt-6 flex flex-wrap gap-2">
@@ -515,7 +596,6 @@
           <div id="timberly-overlay" class="absolute inset-0 flex flex-col items-center justify-center gap-4 text-center px-6" style="background:#15151c;">
             <span class="font-display text-[13px] uppercase tracking-[0.2em]" style="color:#ff6eb4;">My first game, click to load it</span>
             <button id="timberly-start-btn" class="font-display rounded-full border-2 px-6 py-2.5 text-[12px] uppercase tracking-[0.2em] transition-colors" style="border-color:#ff6eb4; color:#ff6eb4;">▶ Play Timberly</button>
-            <span class="font-mono text-[11px]" style="color:#666;">loads only when you ask — first load can take a minute, please be patient</span>
           </div>
         </div>
         <div class="hidden md:flex items-center justify-between gap-3 px-4 py-3 border-t-2 border-ink bg-card-bg">
@@ -551,7 +631,6 @@
           <div id="hangman-overlay" class="absolute inset-0 flex flex-col items-center justify-center gap-4 text-center px-6" style="background:#15151c;">
             <span class="font-display text-[13px] uppercase tracking-[0.2em]" style="color:#ff6eb4;">Click to load the game</span>
             <button id="hangman-start-btn" class="font-display rounded-full border-2 px-6 py-2.5 text-[12px] uppercase tracking-[0.2em] transition-colors" style="border-color:#ff6eb4; color:#ff6eb4;">▶ Play Hangman</button>
-            <span class="font-mono text-[11px]" style="color:#666;">loads only when you ask — first load can take a moment, please be patient</span>
           </div>
         </div>
         <div class="hidden md:flex items-center justify-between gap-3 px-4 py-3 border-t-2 border-ink bg-card-bg">
@@ -568,7 +647,7 @@
     </div>
   </section>
 
-<section id="trophies" class="relative px-4 py-14 md:px-8 md:py-20">
+<section id="achievements" class="relative px-4 py-14 md:px-8 md:py-20">
     <div class="mx-auto max-w-[1400px]">
       <div class="flex flex-wrap items-end justify-between gap-3 border-b-2 border-ink pb-4">
         <div>
@@ -630,7 +709,7 @@
     </div>
   </section>
 
-  <section id="desk" class="relative px-4 py-14 md:px-8 md:py-20">
+  <section id="blog" class="relative px-4 py-14 md:px-8 md:py-20">
     <div class="mx-auto max-w-[1400px]">
       <div class="flex flex-wrap items-end justify-between gap-3 border-b-2 border-ink pb-4">
         <div>
@@ -646,7 +725,7 @@
     </div>
   </section>
 
-  <section id="outro" class="relative px-4 py-20 md:px-8 md:py-28">
+  <section id="contact" class="relative px-4 py-20 md:px-8 md:py-28">
     <div class="mx-auto max-w-[1400px]">
       <div class="relative overflow-hidden rounded-[28px] sm:rounded-[36px] border-2 border-ink bg-chrome p-6 pt-14 sm:p-8 sm:pt-8 md:p-14" style="box-shadow: var(--shadow-hard);">
         <h2 class="font-display mt-3 text-[clamp(1.9rem,8vw,8rem)] leading-[0.85]">Let's build<br>something <span class="italic">funny.</span></h2>

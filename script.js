@@ -89,15 +89,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Command Palette Data
     const NAV = [
-      { id: "cover", label: "Home" },
-      { id: "feature", label: "About" },
-      { id: "kit", label: "Stack" },
-      { id: "ledger", label: "Experience" },
+      { id: "home", label: "Home" },
+      { id: "about", label: "About" },
+      { id: "stack", label: "Stack" },
+      { id: "experience", label: "Experience" },
       { id: "projects", label: "Projects" },
-      { id: "hangman-play", label: "Play Hangman" },
-      { id: "trophies", label: "Awards" },
-      { id: "desk", label: "Writing" },
-      { id: "outro", label: "Contact" },
+      { id: "games", label: "Play Hangman" },
+      { id: "achievements", label: "Awards" },
+      { id: "blog", label: "Writing" },
+      { id: "contact", label: "Contact" },
     ];
     
     const PROJECTS_CMDS = [
@@ -240,7 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
         id: "anystudio", index: "01", year: "2026", featured: true, inConstruction: true, size: "wide",
         image: "assets/projects/anystudio.jpg",
         title: "AnyStudio",
-        tagline: "Native desktop IDE in Rust + egui — build Android apps visually",
+        tagline: "Build android apps - no code, with just UI. Leverage AI to build apps and customize on the go for small tasks to reduce token usage. Also, get straightaway support for Python, C++ & Rust.",
         desc: "A native desktop IDE in Rust + egui for building Android apps with a visual UI builder and code logic in Python, C++, or native — compiling straight to the smallest possible APKs via a direct DEX pipeline, no JDK required. Currently in active construction.",
         tags: ["Rust", "egui", "Android", "Compilers"],
         website: null,
@@ -253,7 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
         id: "webelo", index: "02", year: "2025", featured: true, size: "normal",
         image: "assets/projects/webelo.jpg",
         title: "Webelo",
-        tagline: "C++ DOM library, WhatWG-strict",
+        tagline: "C++ DOM library, WhatWG-strict (Upcoming Custom Browser)",
         desc: "C++ DOM library + HTML visualiser that strictly follows the WhatWG DOM Standard — the foundation for an upcoming browser, currently migrating from C++ to Rust.",
         tags: ["C++", "Rust", "WhatWG", "Browser"],
         website: null,
@@ -269,8 +269,8 @@ document.addEventListener("DOMContentLoaded", () => {
         id: "vardhman", index: "03", year: "2026", featured: true, size: "normal",
         image: "assets/projects/vardhman.jpg",
         title: "Vardhman Saathi",
-        tagline: "Live client. Live revenue.",
-        desc: "Production business suite for a real electrical contractor, with a full desktop app and Android app sharing one TypeScript codebase. Hono API · Supabase · R2 · Render. Live client, live revenue.",
+        tagline: "Live Production system with Admin desktop app, server and User mobile app deployed at PlayStore.",
+        desc: "Production business suite for a salesperson credit system, with a full desktop app and Android app sharing one TypeScript codebase. Hono API · Supabase · Cloudflare R2 · Render. Live client, live revenue.",
         tags: ["TypeScript", "Hono", "React Native", "Desktop"],
         website: "https://vardhmansaathi.shop",
         github: null,
@@ -311,8 +311,8 @@ document.addEventListener("DOMContentLoaded", () => {
         id: "timberly", index: "06", year: "2024", featured: false, size: "normal",
         image: "assets/projects/timberly.jpg",
         title: "Timberly",
-        tagline: "Casual lumberjack game",
-        desc: "Casual lumberjack game — plays in-browser, downloads for Win/macOS/Linux/Android.",
+        tagline: "Casual lumberjack game with multiplayer support.",
+        desc: "Casual lumberjack game — plays in-browser, downloads for Win/macOS/Linux/Android(through web).<br>With Leaderboard to challenge your friends in realtime.",
         tags: ["Game", "C++"],
         website: "https://yogya-chugh.itch.io/timberly",
         github: null,
@@ -345,7 +345,7 @@ document.addEventListener("DOMContentLoaded", () => {
         image: "assets/projects/sih-travel.jpg",
         title: "SIH Travel Security",
         tagline: "Blockchain tourist tracking",
-        desc: "Blockchain system for encrypted tourist tracking with SSO to local authorities. Cleared SIH internals twice.",
+        desc: "Blockchain system for encrypted tourist tracking with SSO to local authorities. Cleared SIH internals :)",
         tags: ["Blockchain", "Team"],
         website: null,
         github: "https://github.com/YogyaChugh",
@@ -358,7 +358,7 @@ document.addEventListener("DOMContentLoaded", () => {
         image: "assets/projects/django-oss.jpg",
         title: "Django · Open Source",
         tagline: "Merged PRs into Django core",
-        desc: "Merged PRs into Django core + third-party libraries. Open-source compounder.",
+        desc: "Merged PRs into Django core + third-party libraries.",
         tags: ["Python", "OSS"],
         website: null,
         github: "https://github.com/django/django/pulls?q=is%3Apr+author%3Ayogyachugh+",
@@ -387,7 +387,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const wideClasses = p.size === "wide"
           ? "col-span-12 lg:col-span-8 lg:row-span-2"
           : "col-span-12 sm:col-span-6 lg:col-span-4";
-        const mediaHeight = p.size === "wide" ? "h-[200px] md:h-[260px]" : "h-[140px] md:h-[160px]";
+        const fallbackAspect = p.size === "wide" ? "16/9" : "4/3";
         const titleSize = p.size === "wide" ? "text-[clamp(2rem,4vw,3.2rem)]" : "text-[clamp(1.4rem,2.2vw,1.9rem)]";
 
         const downloadEntries = Object.entries(p.downloads || {});
@@ -405,8 +405,8 @@ document.addEventListener("DOMContentLoaded", () => {
         return `
         <div data-project-idx="${idx}" role="button" tabindex="0" class="project-card group flex flex-col text-left relative overflow-hidden rounded-3xl border-2 border-ink ${wideClasses}" style="background: var(--card-bg); box-shadow: var(--shadow-hard);">
 
-          <div class="relative ${mediaHeight} shrink-0 overflow-hidden border-b-2 border-ink" style="background: ${p.gradient};">
-            <img src="${p.image}" alt="${p.title} preview" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" onerror="this.style.display='none';">
+          <div class="relative shrink-0 overflow-hidden border-b-2 border-ink project-media" style="background: ${p.gradient}; aspect-ratio: ${fallbackAspect};">
+            <img src="${p.image}" alt="${p.title} preview" class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" loading="lazy" onerror="this.style.display='none';">
             <div class="relative flex items-start justify-between p-4">
               <span class="font-display rounded-full border-2 border-ink px-2.5 py-0.5 text-[10px] uppercase tracking-[0.18em] text-ink backdrop-blur-sm" style="background:rgba(255,255,255,0.75);">${p.year}</span>
               ${p.featured && !p.inConstruction ? `<span class="font-display rounded-full border-2 border-ink px-2.5 py-0.5 text-[10px] uppercase tracking-[0.18em] text-ink" style="background:#fce7f3;">★ featured</span>` : ""}
@@ -426,23 +426,41 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="flex flex-wrap gap-1.5">
               ${quickLinkBtn("globe", p.website, "Visit live site")}
               ${quickLinkBtn("github", p.github, "View code")}
-              ${quickLinkBtn("blog", p.blog ? "#" : null, "Read the blog")}
+              ${quickLinkBtn("blog", p.blog || null, "Read the blog")}
             </div>
             <span class="card-open font-display inline-flex items-center gap-1 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors group-hover:bg-ink group-hover:text-paper">Details ↗</span>
           </div>
         </div>`;
       }).join("");
 
-      // The blog quick-link inside the card should open the modal at the blog tab, not navigate away
+      // The blog quick-link inside the card should open the modal at the blog tab,
+      // but keeps its real href so it's a crawlable link (and still works via
+      // middle-click / "open in new tab" / right-click "copy link").
       projectsGrid.querySelectorAll('[data-cursor="blog"]').forEach((el, i) => {
         const p = PROJECTS[i];
         if (p.blog) {
-          el.removeAttribute("href");
           el.addEventListener("click", (e) => {
+            e.preventDefault();
             e.stopPropagation();
             openProjectModal(PROJECTS.indexOf(p), "blog");
           });
         }
+      });
+
+      // Size each card's media band to the image's real aspect ratio instead of a fixed height,
+      // so wide screenshots and tall/portrait screenshots both display without being force-cropped.
+      projectsGrid.querySelectorAll(".project-media img").forEach((img) => {
+        const media = img.closest(".project-media");
+        if (!media) return;
+        const applyAspect = () => {
+          if (!img.naturalWidth || !img.naturalHeight) return;
+          const ratio = img.naturalWidth / img.naturalHeight;
+          // Clamp so an extreme image (e.g. a tall phone screenshot) can't blow out the grid layout.
+          const clamped = Math.min(Math.max(ratio, 0.6), 2.4);
+          media.style.aspectRatio = clamped;
+        };
+        if (img.complete && img.naturalWidth) applyAspect();
+        else img.addEventListener("load", applyAspect, { once: true });
       });
     }
 
@@ -450,29 +468,35 @@ document.addEventListener("DOMContentLoaded", () => {
       const downloadEntries = Object.entries(p.downloads || {});
 
       return `
-        <div class="flex flex-col md:flex-row h-full">
-          <div class="md:w-[58%] lg:w-[60%] shrink-0 relative bg-ink/5 border-b-2 md:border-b-0 md:border-r-2 border-ink min-h-[280px] md:min-h-full">
+        <div class="flex flex-col">
+          <div class="project-modal-media bg-ink/5 border-b-2 border-ink">
             <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 p-8 text-center font-display text-[15px] text-ink/40" style="background: ${p.gradient};">
               <span>Image coming soon</span>
             </div>
-            <img src="${p.image}" alt="${p.title} preview" class="absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.style.display='none';">
+            <div id="project-media-${p.id}" class="absolute inset-0">
+              <img src="${p.image}" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover" style="filter: blur(32px) saturate(1.2); transform: scale(1.2); opacity: 0.55;" loading="lazy" onerror="document.getElementById('project-media-${p.id}').style.display='none';">
+              <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(255,255,255,0.08), rgba(255,255,255,0.28));"></div>
+              <img src="${p.image}" alt="${p.title} preview" class="absolute inset-0 w-full h-full object-contain" loading="lazy">
+            </div>
             ${p.inConstruction ? `<span class="absolute top-3 left-3 z-10 font-display rounded-full border-2 border-ink px-2.5 py-0.5 text-[10px] uppercase tracking-[0.18em]" style="background: rgba(255,243,196,0.92);">🚧 In construction</span>` : p.website ? `<span class="absolute top-3 left-3 z-10 font-display rounded-full border-2 border-ink px-2.5 py-0.5 text-[10px] uppercase tracking-[0.18em] flex items-center gap-1.5" style="background: rgba(255,255,255,0.92);"><span class="h-1.5 w-1.5 rounded-full bg-[#22c55e]"></span>Live</span>` : ""}
           </div>
-          <div class="flex-1 overflow-y-auto p-6 sm:p-8 md:p-10">
-            <span class="font-display text-[11px] uppercase tracking-[0.2em] text-ink/50">Project · ${p.year}</span>
-            <h2 class="font-display mt-2 text-[clamp(2rem,4vw,3rem)] leading-[0.95]">${p.title}</h2>
-            <p class="font-body mt-4 text-[15px] leading-[1.6] text-ink/85 max-w-xl">${p.desc}</p>
-            <div class="mt-5 flex flex-wrap gap-1.5">
+          <div class="p-6 sm:p-8 md:p-10">
+            <div class="flex flex-wrap items-baseline gap-2">
+              <span class="font-display text-[11px] uppercase tracking-[0.2em] text-ink/50">Project · ${p.year}</span>
+            </div>
+            <h2 class="font-display mt-1.5 text-[clamp(1.6rem,3vw,2.4rem)] leading-[0.95]">${p.title}</h2>
+            <div class="mt-3 flex flex-wrap gap-1.5">
               ${p.tags.map(t => `<span class="font-display rounded-full border border-ink/30 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.12em]" style="background: rgba(253,240,252,0.80);">${t}</span>`).join("")}
             </div>
+            <p class="font-body mt-3 text-[15px] leading-[1.55] text-ink/85 max-w-xl">${p.desc}</p>
 
-            <div class="mt-7 space-y-5">
+            <div class="mt-5 grid gap-4 sm:grid-cols-2">
               <div>
                 <span class="font-display text-[11px] uppercase tracking-[0.2em] text-ink/50">Links</span>
                 <div class="mt-2 flex flex-wrap gap-2">
                   ${p.website ? `<a href="${p.website}" target="_blank" rel="noreferrer" data-cursor="open" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3.5 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75">${PLATFORM_ICONS.globe} Visit Site ↗</a>` : ""}
                   ${p.github ? `<a href="${p.github}" target="_blank" rel="noreferrer" data-cursor="github" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3.5 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);">${PLATFORM_ICONS.github} ${p.githubLabel || "GitHub ↗"}</a>` : ""}
-                  ${p.blog ? `<button data-open-project-blog="${p.id}" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3.5 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);">${PLATFORM_ICONS.blog} Read Blog ↗</button>` : ""}
+                  ${p.blog ? `<a href="${p.blog}" data-open-project-blog="${p.id}" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3.5 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);">${PLATFORM_ICONS.blog} Read Blog ↗</a>` : ""}
                 </div>
               </div>
               ${downloadEntries.length ? `
@@ -486,8 +510,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 <span class="font-display text-[11px] uppercase tracking-[0.2em] text-ink/50">Download</span>
                 <p class="mt-2 font-body text-[13px] text-ink/60 italic">Still in construction — no downloads yet. Watch the repo for releases.</p>
               </div>` : ""}
-              ${p.blog ? `<div id="project-blog-area-${p.id}" class="${focusTab === 'blog' ? '' : 'hidden'} mt-2 rounded-2xl border-2 border-ink p-5" style="background: var(--card-bg);"></div>` : ""}
             </div>
+            ${p.blog ? `<div id="project-blog-area-${p.id}" class="${focusTab === 'blog' ? '' : 'hidden'} mt-5 rounded-2xl border-2 border-ink p-5" style="background: var(--card-bg);"></div>` : ""}
           </div>
         </div>
       `;
@@ -520,7 +544,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 10);
 
       const blogBtn = projectModalBody.querySelector(`[data-open-project-blog="${p.id}"]`);
-      if (blogBtn) blogBtn.addEventListener("click", () => loadProjectBlog(p));
+      if (blogBtn) blogBtn.addEventListener("click", (e) => { e.preventDefault(); loadProjectBlog(p); });
       if (focusTab === "blog" && p.blog) loadProjectBlog(p);
     };
 
@@ -646,22 +670,22 @@ document.addEventListener("DOMContentLoaded", () => {
     // Populate index.html blog cards
     if (blogsGrid) {
       blogsGrid.innerHTML = BLOGS.map((b, idx) => `
-        <button data-blog-idx="${idx}" class="blog-card-btn text-left group col-span-12 flex flex-col rounded-3xl border-2 border-ink p-6 transition-transform md:hover:-translate-y-1 md:col-span-6 lg:col-span-4" style="background: var(--card-bg); box-shadow: var(--shadow-hard);">
+        <a href="${b.file}" data-blog-idx="${idx}" class="blog-card-btn text-left group col-span-12 flex flex-col rounded-3xl border-2 border-ink p-6 transition-transform md:hover:-translate-y-1 md:col-span-6 lg:col-span-4" style="background: var(--card-bg); box-shadow: var(--shadow-hard);">
           <div class="flex items-center justify-between w-full">
             <span class="font-display text-[11px] uppercase tracking-[0.22em] text-ink/40 transition-colors group-hover:text-ink">Read ↗</span>
           </div>
           <h3 class="font-display mt-4 text-[clamp(1.4rem,2.2vw,2rem)] leading-[1.05]">${b.title}</h3>
           <p class="font-body mt-3 text-[14.5px] leading-[1.5] text-ink/75">${b.desc}</p>
-        </button>
+        </a>
       `).join('');
     }
 
     // Populate modal sidebar
     if (blogSidebarList) {
       blogSidebarList.innerHTML = BLOGS.map((b, idx) => `
-        <button data-blog-idx="${idx}" class="sidebar-blog-btn text-left rounded-xl p-3 border-2 border-transparent hover:border-ink/20 transition-all focus:outline-none">
+        <a href="${b.file}" data-blog-idx="${idx}" class="sidebar-blog-btn text-left rounded-xl p-3 border-2 border-transparent hover:border-ink/20 transition-all focus:outline-none">
           <h4 class="font-display text-[16px] leading-[1.2] text-ink line-clamp-2">${b.title}</h4>
-        </button>
+        </a>
       `).join('');
     }
 
@@ -722,14 +746,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Event listeners
     document.querySelectorAll(".blog-card-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
         const idx = parseInt(btn.getAttribute("data-blog-idx"));
         openBlogModal(idx);
       });
     });
 
     document.querySelectorAll(".sidebar-blog-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
         const idx = parseInt(btn.getAttribute("data-blog-idx"));
         openBlogModal(idx);
       });
@@ -834,6 +860,7 @@ document.addEventListener("DOMContentLoaded", () => {
               fixStyle.textContent = `
                 html, body { margin:0; padding:0; overflow:hidden; cursor:auto !important; }
                 canvas { border:none !important; outline:none !important; display:block; cursor:auto !important; }
+                #pyconsole, #system, #box, #dlg { display:none !important; }
               `;
               doc.head.appendChild(fixStyle);
             }

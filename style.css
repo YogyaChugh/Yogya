@@ -254,7 +254,7 @@ h1, h2, h3, h4, .font-display {
 div.project-card {
   width: 100%;
   text-align: left;
-  cursor: pointer;
+  cursor: none;
   outline: none;
 }
 
@@ -288,4 +288,21 @@ button[style*="rgba(253,240,252,0.90)"]:hover {
   display: block;
   width: 100%;
   flex-shrink: 0;
+}
+
+/* ── Project detail modal — stacked layout media band ─────
+   Plain CSS (not a compiled Tailwind class) so the height
+   always applies regardless of build step. ──────────────── */
+.project-modal-media {
+  width: 100%;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  height: 320px;
+}
+@media (min-width: 640px) {
+  .project-modal-media { height: 420px; }
+}
+@media (min-width: 768px) {
+  .project-modal-media { height: 480px; }
 }

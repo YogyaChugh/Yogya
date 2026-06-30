@@ -273,7 +273,7 @@ config = {
     ume_block : 1,
     can_close : 0,
     archive : "timberly",
-    gui_debug : 3,
+    gui_debug : 0,
     cdn : "https://pygame-web.github.io/archives/0.9/",
     autorun : 0,
     PYBUILD : "3.12"
@@ -384,6 +384,17 @@ config = {
            top:150px;
            right:10px;
            border: 1px solid black;
+        }
+
+        /* Debug-only panels (pygbag's xterm console, sysinfo overlay, file
+           dialog) are not meant to ship in the published game. #pyconsole
+           in particular has no "hidden" attribute in the markup below and
+           only gets hidden later by custom_onload() — if that callback is
+           ever skipped or fired with the wrong value, it sits on screen
+           on top of the canvas. Force them off unconditionally instead of
+           relying on that timing. */
+        #pyconsole, #system, #box, #dlg {
+            display: none !important;
         }
     </style>
 
