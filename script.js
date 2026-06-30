@@ -749,6 +749,18 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
+    // ── Desktop-only play gating ───────────────────────────────
+    // The Timberly/Hangman in-browser players need a real keyboard
+    // and mouse/pointer-lock; on phones & tablets we still let people
+    // download the native builds, we just don't let them try to play
+    // in-browser (and we hide the fullscreen control, which is
+    // unreliable on mobile browsers anyway).
+    function isDesktopDevice() {
+      const hasFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+      const wideEnough = window.innerWidth >= 1024;
+      return hasFinePointer && wideEnough;
+    }
+
     // ── Game tab switcher (Timberly / Hangman) ────────────────
     (function initGameTabs() {
       const tabs = document.querySelectorAll(".game-tab");
@@ -782,6 +794,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
       let loaded = false;
       let iframeEl = null;
+
+      if (!isDesktopDevice()) {
+        startBtn.textContent = "▶ Desktop only";
+        startBtn.disabled = true;
+        startBtn.classList.add("opacity-50", "cursor-not-allowed");
+        statusEl.textContent = "In-browser play needs a desktop with a keyboard & mouse — grab a native build below instead.";
+        if (fsBtn) fsBtn.classList.add("hidden");
+        return;
+      }
 
       function loadAndStart() {
         if (loaded) return;
@@ -849,6 +870,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
       let loaded = false;
       let term = null;
+
+      if (!isDesktopDevice()) {
+        startBtn.textContent = "▶ Desktop only";
+        startBtn.disabled = true;
+        startBtn.classList.add("opacity-50", "cursor-not-allowed");
+        statusEl.textContent = "In-browser play needs a desktop with a keyboard — grab a native build below instead.";
+        if (fsBtn) fsBtn.classList.add("hidden");
+        return;
+      }
 
       function sendChar(ch) {
         if (!term) return;

@@ -153,19 +153,48 @@ h1, h2, h3, h4, .font-display {
   transform: translateY(0);
 }
 
-/* ── Project card — hover ───────────────── */
-.project-card:hover {
-  transform: translateY(-10px) !important;
-  box-shadow: 8px 14px 0 0 var(--ink) !important;
+/* ── Project card — hover (fine pointer / desktop only) ──
+   Gating behind (hover: hover) and (pointer: fine) prevents the
+   "stuck hover" bug on touch devices, where tapping a card leaves
+   it permanently translated up with an oversized shadow, breaking
+   the grid layout visually until another element is tapped. ── */
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 8px 14px 0 0 var(--ink) !important;
+  }
+  .project-card:hover .art-layer   { opacity: 1    !important; }
+  .project-card:hover .index-layer {
+    opacity: 0.2   !important;
+    transform: scale(1.08) !important;
+  }
+  .project-card:hover .emoji-layer {
+    opacity: 0.5   !important;
+    transform: scale(1) rotate(-6deg) !important;
+  }
 }
-.project-card:hover .art-layer   { opacity: 1    !important; }
-.project-card:hover .index-layer {
-  opacity: 0.2   !important;
-  transform: scale(1.08) !important;
+
+/* Touch devices: explicitly neutralize any lingering hover/active
+   transform state so cards never render mid-animation. */
+@media (hover: none), (pointer: coarse) {
+  .project-card:hover,
+  .project-card:active,
+  .project-card:focus {
+    transform: none !important;
+    box-shadow: var(--shadow-hard) !important;
+  }
+  .project-card:hover .art-layer,
+  .project-card:hover .index-layer,
+  .project-card:hover .emoji-layer {
+    transform: none !important;
+  }
 }
-.project-card:hover .emoji-layer {
-  opacity: 0.5   !important;
-  transform: scale(1) rotate(-6deg) !important;
+
+/* Prevent flex/grid children (long titles, tag pills) from forcing
+   overflow that breaks the card grid on narrow viewports. */
+.project-card,
+.project-card * {
+  min-width: 0;
 }
 
 /* "Open ↗" underline sweep */
@@ -198,6 +227,23 @@ h1, h2, h3, h4, .font-display {
   }
   ol > li { padding-top: 1.25rem; padding-bottom: 1.25rem; }
   .tilt-l, .tilt-r { transform: none; }
+
+  /* Tailwind's hover:* transform utilities (used on stack, experience,
+     and award cards) fire on :hover, which sticks after a tap on
+     touch devices — leaving cards translated/rotated and breaking the
+     layout. Force them back to their resting transform on any
+     element using those utilities. */
+  [class*="hover:-translate"],
+  [class*="hover:translate"],
+  [class*="hover:-rotate"],
+  [class*="hover:rotate"],
+  [class*="hover:scale"] {
+    transform: none !important;
+  }
+  .tilt-l[class*="hover:-translate"],
+  .tilt-r[class*="hover:-translate"] {
+    transform: none !important;
+  }
 }
 @media (max-width: 640px) {
   .animate-marquee span { font-size: 13px; }
