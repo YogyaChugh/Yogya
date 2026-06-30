@@ -203,3 +203,12 @@ h1, h2, h3, h4, .font-display {
   .animate-marquee span { font-size: 13px; }
   [style*="--shadow-hard"] { box-shadow: 3px 3px 0 0 var(--ink) !important; }
 }
+
+/* ── Hover fix for white/light inline background buttons ── */
+a[style*="var(--paper)"]:hover,
+button[style*="var(--paper)"]:hover,
+a[style*="rgba(253,240,252,0.90)"]:hover,
+button[style*="rgba(253,240,252,0.90)"]:hover {
+  background: var(--ink) !important;
+  color: var(--paper) !important;
+}

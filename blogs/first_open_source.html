@@ -1,0 +1,45 @@
+<div class="mb-10">
+  <span class="font-display rounded-full border-2 border-ink px-2.5 py-0.5 text-[10px] uppercase tracking-[0.18em] text-ink" style="background:#fce7f3;">Open Source</span>
+  <h1 class="font-display mt-4 text-[clamp(2.4rem,5vw,4rem)] leading-[0.95] text-ink">My First Open Source Contribution.</h1>
+  <div class="font-body mt-4 flex items-center gap-4 text-[14px] text-ink/60">
+    <span>August 24, 2024</span>
+    <span>·</span>
+    <span>5 min read</span>
+  </div>
+</div>
+
+<div class="font-body text-[17px] leading-[1.7] text-ink/80 space-y-6">
+  <p class="text-[20px] leading-[1.6] mb-8 font-medium text-ink">Contributing to a massive open-source project like Django can feel intimidating. The codebase is enormous, the maintainers are brilliant, and you're just hoping your pull request doesn't break something critical. But the open-source community is built on collaboration, and my first major contribution taught me exactly that.</p>
+  
+  <h2 class="font-display text-[26px] mt-12 mb-4 text-ink">Discovering Ticket 36271</h2>
+  <p>I was browsing the Django issue tracker when I came across <strong>Ticket 36271</strong>. It detailed a specific bug related to form rendering and widgets. Since I had some experience working with Django's forms in my own projects, I felt this was the perfect opportunity to dive in.</p>
+  
+  <p>Setting up the local environment was the first hurdle. Django has a comprehensive test suite, and getting everything running smoothly required carefully reading through the contributing documentation. Once the tests were passing locally, I started tracing the execution path of the bug.</p>
+
+  <div class="my-10 rounded-2xl border-2 border-ink overflow-hidden" style="box-shadow: var(--shadow-hard);">
+      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800&h=400" alt="Code on screen" class="w-full h-auto object-cover">
+      <div class="bg-paper border-t-2 border-ink p-3 text-[12px] text-center text-ink/60 font-body">Diving into the Django core codebase.</div>
+  </div>
+
+  <h2 class="font-display text-[26px] mt-12 mb-4 text-ink">Writing the Fix & Tests</h2>
+  <p>Locating the exact module causing the issue took some deep diving into the framework's internals. When I finally pinpointed the problem, the actual fix only required modifying a few lines of code. However, in open source, writing the code is only half the battle.</p>
+
+  <blockquote class="border-l-4 border-rose pl-6 py-2 my-8 text-[20px] italic text-ink/80">
+    "The hardest part wasn't writing the code; it was ensuring the fix was robust enough for thousands of developers."
+  </blockquote>
+
+  <p>I had to write comprehensive test cases to prove the bug was fixed and ensure it wouldn't regress in the future. Django's existing tests were a great reference point, allowing me to model my assertions correctly.</p>
+  
+  <h2 class="font-display text-[26px] mt-12 mb-4 text-ink">The Review Process</h2>
+  <p>Submitting the pull request was exhilarating. Within a few days, <strong>Sarah Boyce</strong>, a Django core developer and maintainer, reviewed my code. Working with a seasoned maintainer was incredibly insightful. She provided excellent feedback, requesting a minor adjustment to how the test case was structured.</p>
+  
+  <p>After pushing the requested changes, the checks passed, and the magical word appeared: <strong>"Merged."</strong> Seeing my code become part of a framework used by millions of developers worldwide was an unforgettable milestone.</p>
+
+  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-12 p-6 rounded-2xl border-2 border-ink" style="background: var(--card-bg); box-shadow: var(--shadow-hard);">
+      <div class="flex-1">
+        <h3 class="font-display text-[18px] mb-1">Read on Medium</h3>
+        <p class="font-body text-[14px] text-ink/70">You can read the full, original technical deep-dive on my Medium blog.</p>
+      </div>
+      <a href="https://medium.com/@yogya.developer/my-first-open-source-contribution-67c08b88e674" target="_blank" data-cursor="medium" class="font-display rounded-full border-2 border-ink px-4 py-2 text-[12px] uppercase tracking-[0.22em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: var(--paper);">View Original ↗</a>
+  </div>
+</div>
