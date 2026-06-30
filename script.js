@@ -403,9 +403,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         return `
-        <button data-project-idx="${idx}" class="project-card group flex flex-col text-left relative overflow-hidden rounded-3xl border-2 border-ink ${wideClasses}" style="background: var(--card-bg); box-shadow: var(--shadow-hard);">
+        <div data-project-idx="${idx}" role="button" tabindex="0" class="project-card group flex flex-col text-left relative overflow-hidden rounded-3xl border-2 border-ink ${wideClasses}" style="background: var(--card-bg); box-shadow: var(--shadow-hard);">
 
-          <!-- Media band -->
           <div class="relative ${mediaHeight} shrink-0 overflow-hidden border-b-2 border-ink" style="background: ${p.gradient};">
             <img src="${p.image}" alt="${p.title} preview" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" onerror="this.style.display='none';">
             <div class="relative flex items-start justify-between p-4">
@@ -415,7 +414,6 @@ document.addEventListener("DOMContentLoaded", () => {
             ${statusBadges.length ? `<div class="absolute bottom-3 left-4 right-4 flex flex-wrap gap-1.5">${statusBadges.join("")}</div>` : ""}
           </div>
 
-          <!-- Body -->
           <div class="flex flex-1 flex-col p-5 md:p-6">
             <h3 class="font-display leading-[0.95] ${titleSize}">${p.title}</h3>
             <p class="font-body mt-2.5 text-ink/80 text-[14px] leading-[1.5]">${p.tagline}</p>
@@ -424,7 +422,6 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
           </div>
 
-          <!-- Footer action bar -->
           <div class="flex items-center justify-between border-t-2 border-ink px-5 py-3 md:px-6" style="background: rgba(255,255,255,0.5);">
             <div class="flex flex-wrap gap-1.5">
               ${quickLinkBtn("globe", p.website, "Visit live site")}
@@ -433,7 +430,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             <span class="card-open font-display inline-flex items-center gap-1 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors group-hover:bg-ink group-hover:text-paper">Details ↗</span>
           </div>
-        </button>`;
+        </div>`;
       }).join("");
 
       // The blog quick-link inside the card should open the modal at the blog tab, not navigate away
@@ -462,7 +459,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ${p.inConstruction ? `<span class="absolute top-3 left-3 z-10 font-display rounded-full border-2 border-ink px-2.5 py-0.5 text-[10px] uppercase tracking-[0.18em]" style="background: rgba(255,243,196,0.92);">🚧 In construction</span>` : p.website ? `<span class="absolute top-3 left-3 z-10 font-display rounded-full border-2 border-ink px-2.5 py-0.5 text-[10px] uppercase tracking-[0.18em] flex items-center gap-1.5" style="background: rgba(255,255,255,0.92);"><span class="h-1.5 w-1.5 rounded-full bg-[#22c55e]"></span>Live</span>` : ""}
           </div>
           <div class="flex-1 overflow-y-auto p-6 sm:p-8 md:p-10">
-            <span class="font-display text-[11px] uppercase tracking-[0.22em] text-ink/50">Project · ${p.year}</span>
+            <span class="font-display text-[11px] uppercase tracking-[0.2em] text-ink/50">Project · ${p.year}</span>
             <h2 class="font-display mt-2 text-[clamp(2rem,4vw,3rem)] leading-[0.95]">${p.title}</h2>
             <p class="font-body mt-4 text-[15px] leading-[1.6] text-ink/85 max-w-xl">${p.desc}</p>
             <div class="mt-5 flex flex-wrap gap-1.5">
@@ -539,9 +536,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (projectsGrid) {
       projectsGrid.querySelectorAll(".project-card").forEach(card => {
+        // Handle keyboard accessibility since we changed button to div for mobile layout stability
         card.addEventListener("click", () => {
           const idx = parseInt(card.getAttribute("data-project-idx"));
           openProjectModal(idx);
+        });
+        card.addEventListener("keypress", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            card.click();
+          }
         });
       });
     }
@@ -567,7 +571,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Sparkle cursor hover binding for dynamically-created project card elements
     const cursorDot = document.getElementById("cursor-dot");
     if (cursorDot) {
-      document.querySelectorAll("#projects-grid a, #projects-grid button, #project-modal a, #project-modal button").forEach(el => {
+      document.querySelectorAll("#projects-grid a, #projects-grid div[role='button'], #project-modal a, #project-modal button").forEach(el => {
         el.addEventListener("mouseenter", () => cursorDot.classList.add("hovered"));
         el.addEventListener("mouseleave", () => cursorDot.classList.remove("hovered"));
       });
@@ -642,7 +646,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Populate index.html blog cards
     if (blogsGrid) {
       blogsGrid.innerHTML = BLOGS.map((b, idx) => `
-        <button data-blog-idx="${idx}" class="blog-card-btn text-left group col-span-12 flex flex-col rounded-3xl border-2 border-ink p-6 transition-transform hover:-translate-y-1 md:col-span-6 lg:col-span-4" style="background: var(--card-bg); box-shadow: var(--shadow-hard);">
+        <button data-blog-idx="${idx}" class="blog-card-btn text-left group col-span-12 flex flex-col rounded-3xl border-2 border-ink p-6 transition-transform md:hover:-translate-y-1 md:col-span-6 lg:col-span-4" style="background: var(--card-bg); box-shadow: var(--shadow-hard);">
           <div class="flex items-center justify-between w-full">
             <span class="font-display text-[11px] uppercase tracking-[0.22em] text-ink/40 transition-colors group-hover:text-ink">Read ↗</span>
           </div>
@@ -795,13 +799,11 @@ document.addEventListener("DOMContentLoaded", () => {
       let loaded = false;
       let iframeEl = null;
 
+      // Note: Handled by HTML 'md:hidden' fallback visually now, 
+      // but keeping programmatic guard intact.
       if (!isDesktopDevice()) {
-        startBtn.textContent = "▶ Desktop only";
         startBtn.disabled = true;
-        startBtn.classList.add("opacity-50", "cursor-not-allowed");
-        statusEl.textContent = "In-browser play needs a desktop with a keyboard & mouse — grab a native build below instead.";
-        if (fsBtn) fsBtn.classList.add("hidden");
-        return;
+        return; 
       }
 
       function loadAndStart() {
@@ -871,12 +873,10 @@ document.addEventListener("DOMContentLoaded", () => {
       let loaded = false;
       let term = null;
 
+      // Note: Handled by HTML 'md:hidden' fallback visually now, 
+      // but keeping programmatic guard intact.
       if (!isDesktopDevice()) {
-        startBtn.textContent = "▶ Desktop only";
         startBtn.disabled = true;
-        startBtn.classList.add("opacity-50", "cursor-not-allowed");
-        statusEl.textContent = "In-browser play needs a desktop with a keyboard — grab a native build below instead.";
-        if (fsBtn) fsBtn.classList.add("hidden");
         return;
       }
 

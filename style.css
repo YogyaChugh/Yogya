@@ -192,8 +192,7 @@ h1, h2, h3, h4, .font-display {
 
 /* Prevent flex/grid children (long titles, tag pills) from forcing
    overflow that breaks the card grid on narrow viewports. */
-.project-card,
-.project-card * {
+.project-card {
   min-width: 0;
 }
 
@@ -250,12 +249,12 @@ h1, h2, h3, h4, .font-display {
   [style*="--shadow-hard"] { box-shadow: 3px 3px 0 0 var(--ink) !important; }
 }
 
-/* ── Project card as <button> — reset native button chrome ── */
-button.project-card {
+/* ── Project card as DIV role="button" ── */
+div.project-card {
   width: 100%;
-  font: inherit;
-  appearance: none;
-  -webkit-appearance: none;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
 }
 
 /* ── Project detail modal iframe ───────────────────────── */
