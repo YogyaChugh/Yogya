@@ -267,3 +267,25 @@ button[style*="rgba(253,240,252,0.90)"]:hover {
   background: var(--ink) !important;
   color: var(--paper) !important;
 }
+/* ── Experience card "browser window" — hand-written fallback ────────────
+   Guarantees correct stacking (header bar on top, full-width image below)
+   even if the compiled Tailwind utility CSS fails to load or is stale.
+   These rules are plain CSS and do not depend on the build step. ──────── */
+.exp-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.exp-card-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+.exp-card-img {
+  display: block;
+  width: 100%;
+  flex-shrink: 0;
+}
