@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hangman — Play in Browser</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/xterm/5.3.0/css/xterm.min.css" />
+<style>
+  :root { --bg:#0d0d12; --panel:#15151c; --accent:#ff6eb4; --accent2:#c084fc; }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0; height: 100%;
+    background: var(--bg);
+    font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    color: #eee;
+  }
+  body {
+    display: flex; flex-direction: column; align-items: center;
+    padding: 24px 16px 40px;
+    min-height: 100vh;
+  }
+  h1 {
+    font-family: "Space Grotesk", ui-sans-serif, sans-serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+    margin: 0 0 4px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  p.sub {
+    margin: 0 0 18px;
+    font-size: 0.8rem;
+    color: #999;
+    text-align: center;
+    max-width: 480px;
+  }
+  #term-wrap {
+    width: min(900px, 96vw);
+    background: var(--panel);
+    border: 2px solid #2a2a35;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  }
+  #term-bar {
+    display: flex; align-items: center; gap: 6px;
+    padding: 2px 6px 10px;
+  }
+  .dot { width: 11px; height: 11px; border-radius: 50%; }
+  .dot.r { background:#ff5f56; } .dot.y { background:#ffbd2e; } .dot.g { background:#27c93f; }
+  #term-bar span.label {
+    margin-left: 10px; font-size: 0.72rem; color: #777; letter-spacing: 0.05em;
+  }
+  #terminal { height: 560px; }
+  #status {
+    margin-top: 14px;
+    font-size: 0.75rem;
+    color: #888;
+    min-height: 1.2em;
+  }
+  #restart-btn {
+    margin-top: 10px;
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    font: inherit;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  #restart-btn:hover { background: var(--accent); color: #1a0a14; }
+</style>
+</head>
+<body>
+  <h1>Hangman — live in your browser</h1>
+  <p class="sub">The original C terminal game, compiled to WebAssembly. Click the terminal, then type a single letter and press Enter to guess.</p>
+
+  <div id="term-wrap">
+    <div id="term-bar">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span class="label">hangman.c — wasm</span>
+    </div>
+    <div id="terminal"></div>
+  </div>
+
+  <div id="status">Loading…</div>
+  <button id="restart-btn" style="display:none;">Restart Game</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/5.3.0/lib/xterm.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xterm-addon-fit/0.8.0/lib/xterm-addon-fit.min.js"></script>
+<script src="./hangman.js"></script>
+<script>
+  const statusEl = document.getElementById("status");
+  const restartBtn = document.getElementById("restart-btn");
+
+  const term = new Terminal({
+    cursorBlink: true,
+    fontSize: 13,
+    fontFamily: 'ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace',
+    theme: {
+      background: "#15151c",
+      foreground: "#eaeaea",
+      cursor: "#ff6eb4",
+    },
+    convertEol: true,
+  });
+  const fitAddon = new FitAddon.FitAddon();
+  term.loadAddon(fitAddon);
+  term.open(document.getElementById("terminal"));
+  fitAddon.fit();
+  window.addEventListener("resize", () => fitAddon.fit());
+
+  // Queue consumed by the WASM module's blocking getchar bridge (see input_lib.js)
+  window.__hangmanInput = [];
+  term.onData((data) => {
+    for (const ch of data) {
+      // Map Enter to newline so " %c" whitespace-skip logic in C behaves like a real terminal
+      const code = ch === "\r" ? 10 : ch.charCodeAt(0);
+      window.__hangmanInput.push(code);
+      term.write(ch === "\r" ? "\r\n" : ch);
+    }
+  });
+
+  let started = false;
+
+  function boot() {
+    statusEl.textContent = "Booting game…";
+    createHangmanModule({
+      print: (text) => term.write(text + "\r\n"),
+      printErr: (text) => term.write("\x1b[31m" + text + "\x1b[0m\r\n"),
+    }).then(() => {
+      statusEl.textContent = "";
+      restartBtn.style.display = "inline-block";
+      term.focus();
+    }).catch((err) => {
+      statusEl.textContent = "Failed to start: " + err;
+    });
+  }
+
+  restartBtn.addEventListener("click", () => {
+    term.reset();
+    window.__hangmanInput = [];
+    boot();
+  });
+
+  boot();
+</script>
+</body>
+</html>

@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Yogya Chugh — Developer &amp; Builder</title>
+  <title>Yogya Chugh — Developer</title>
+  <link rel="icon" type="image/png" href="favicon.png">
   <meta name="description" content="Personal site of Yogya Chugh — CS undergrad shipping IDEs in Rust, browser engines in C++, ML tools, and software for real clients.">
   <meta property="og:title" content="Yogya Chugh — Developer &amp; Builder">
   <meta property="og:description" content="Magazine-style portfolio: projects, work, writing, contact.">
@@ -59,6 +60,7 @@
         <a href="#kit"      class="font-display rounded-full px-3 py-1.5 text-[12px] uppercase tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink hover:text-paper">Stack</a>
         <a href="#ledger"   class="font-display rounded-full px-3 py-1.5 text-[12px] uppercase tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink hover:text-paper">Experience</a>
         <a href="#projects" class="font-display rounded-full px-3 py-1.5 text-[12px] uppercase tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink hover:text-paper">Projects</a>
+        <a href="#hangman-play" class="font-display rounded-full px-3 py-1.5 text-[12px] uppercase tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink hover:text-paper">Play</a>
         <a href="#trophies" class="font-display rounded-full px-3 py-1.5 text-[12px] uppercase tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink hover:text-paper">Achievements</a>
         <a href="#desk"     class="font-display rounded-full px-3 py-1.5 text-[12px] uppercase tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink hover:text-paper">Blogs</a>
         <a href="#outro"    class="font-display rounded-full px-3 py-1.5 text-[12px] uppercase tracking-[0.18em] text-ink/70 transition-colors hover:bg-ink hover:text-paper">Contact</a>
@@ -81,6 +83,7 @@
         <a href="#kit"      class="mobile-nav-link font-display rounded-xl px-4 py-3 text-[13px] uppercase tracking-[0.18em] text-ink/80 transition-colors hover:bg-ink hover:text-paper">Stack</a>
         <a href="#ledger"   class="mobile-nav-link font-display rounded-xl px-4 py-3 text-[13px] uppercase tracking-[0.18em] text-ink/80 transition-colors hover:bg-ink hover:text-paper">Experience</a>
         <a href="#projects" class="mobile-nav-link font-display rounded-xl px-4 py-3 text-[13px] uppercase tracking-[0.18em] text-ink/80 transition-colors hover:bg-ink hover:text-paper">Projects</a>
+        <a href="#hangman-play" class="mobile-nav-link font-display rounded-xl px-4 py-3 text-[13px] uppercase tracking-[0.18em] text-ink/80 transition-colors hover:bg-ink hover:text-paper">Play</a>
         <a href="#trophies" class="mobile-nav-link font-display rounded-xl px-4 py-3 text-[13px] uppercase tracking-[0.18em] text-ink/80 transition-colors hover:bg-ink hover:text-paper">Achievements</a>
         <a href="#desk"     class="mobile-nav-link font-display rounded-xl px-4 py-3 text-[13px] uppercase tracking-[0.18em] text-ink/80 transition-colors hover:bg-ink hover:text-paper">Blogs</a>
         <a href="#outro"    class="mobile-nav-link font-display rounded-xl px-4 py-3 text-[13px] uppercase tracking-[0.18em] text-ink/80 transition-colors hover:bg-ink hover:text-paper">Contact</a>
@@ -444,291 +447,92 @@
         </div>
         <a href="https://github.com/YogyaChugh" target="_blank" rel="noreferrer" data-cursor="github" class="font-display rounded-full border-2 border-ink px-4 py-2 text-[12px] uppercase tracking-[0.22em] transition-colors hover:bg-ink hover:text-paper" style="background: var(--paper);">All on GitHub ↗</a>
       </div>
-      <div class="mt-8 grid grid-cols-12 gap-4">
-
-        <!-- AnyStudio — featured wide -->
-        <div data-card-index="1" class="project-card group relative overflow-hidden rounded-3xl border-2 border-ink col-span-12 lg:col-span-8 lg:row-span-2 min-h-[340px] md:min-h-[480px]" style="background: var(--card-bg); box-shadow: var(--shadow-hard);">
-          <div class="art-layer absolute inset-0 transition-opacity duration-500" style="background: linear-gradient(135deg, #fce7f3 0%, #f3e8ff 50%, #fdf2f8 100%); opacity: 0.6;"></div>
-          <div aria-hidden class="index-layer font-display absolute -right-3 -top-6 select-none text-[180px] leading-none text-ink/10 transition-all duration-500" style="opacity: 0.08">01</div>
-          <div class="relative flex h-full flex-col justify-between p-6 md:p-7">
-            <div>
-              <div class="flex items-center justify-between">
-                <span class="font-display text-[11px] uppercase tracking-[0.22em] text-ink/60">Project · 2026</span>
-                <span class="font-display rounded-full border-2 border-ink px-2.5 py-0.5 text-[10px] uppercase tracking-[0.18em] text-ink" style="background:#fce7f3;">featured</span>
-              </div>
-              <h3 class="font-display mt-3 leading-[0.95] text-[clamp(2.5rem,5vw,4.5rem)]">AnyStudio</h3>
-              <p class="font-body mt-3 max-w-md text-ink/80 text-[16px] leading-[1.5]">A native desktop IDE in Rust + egui that builds Android apps via a direct DEX pipeline. We wrote the classes.dex by hand and skipped the JDK entirely.</p>
-            </div>
-            <div class="mt-6 space-y-4">
-              <!-- Tech tags -->
-              <div class="flex flex-wrap gap-1.5">
-                <span class="font-display rounded-full border border-ink/30 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.12em]" style="background: rgba(253,240,252,0.80); backdrop-filter: blur(4px);">Rust</span>
-                <span class="font-display rounded-full border border-ink/30 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.12em]" style="background: rgba(253,240,252,0.80); backdrop-filter: blur(4px);">egui</span>
-                <span class="font-display rounded-full border border-ink/30 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.12em]" style="background: rgba(253,240,252,0.80); backdrop-filter: blur(4px);">Android</span>
-                <span class="font-display rounded-full border border-ink/30 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.12em]" style="background: rgba(253,240,252,0.80); backdrop-filter: blur(4px);">Compilers</span>
-              </div>
-              <!-- Download / visit buttons -->
-              <div class="flex flex-wrap gap-2">
-                <a href="https://github.com/YogyaChugh" target="_blank" rel="noreferrer" data-cursor="windows" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75">
-                  <svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.949"/></svg>
-                  Windows
-                </a>
-                <a href="https://github.com/YogyaChugh" target="_blank" rel="noreferrer" data-cursor="macos" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75">
-                  <svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
-                  macOS
-                </a>
-                <a href="https://github.com/YogyaChugh" target="_blank" rel="noreferrer" data-cursor="linux" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75">
-                  <svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489.117.779.567 1.563 1.205 2.04 1.065.76 2.566.894 3.876.497l.82.186c.79.217 1.538.53 2.217.945 1.093.76 1.717 1.893 1.717 3.187v.03h.058c.096 0 .19-.003.282-.007 4.193-.37 4.156-4.56 4.156-4.56v-.03c0-1.294.624-2.428 1.716-3.187.679-.415 1.427-.728 2.217-.945l.82-.186c1.31.397 2.81.263 3.876-.497.638-.477 1.088-1.261 1.205-2.04.123-.805-.009-1.657-.287-2.489-.589-1.771-1.831-3.47-2.716-4.52-.75-1.068-.974-1.93-1.05-3.021-.065-1.491 1.056-5.965-3.17-6.298-.165-.013-.325-.021-.48-.021zm-4.8 8.701c.33 0 .599.27.599.6s-.269.6-.6.6-.6-.27-.6-.6.27-.6.6-.6zm9.6 0c.33 0 .599.27.599.6s-.269.6-.6.6-.6-.27-.6-.6.27-.6.6-.6z"/></svg>
-                  Linux
-                </a>
-                <a href="https://github.com/YogyaChugh" target="_blank" rel="noreferrer" data-cursor="android" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);">
-                  <svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993.0001.5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4483.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.2439 13.8533 7.8508 12 7.8508s-3.5902.3931-5.1367 1.0729L4.841 5.4207a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3435-4.1021-2.6892-7.5743-6.1185-9.4396"/></svg>
-                  Android
-                </a>
-                <a href="https://github.com/YogyaChugh" target="_blank" rel="noreferrer" data-cursor="ios" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);">
-                  <svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-                  iOS
-                </a>
-                <a href="https://github.com/YogyaChugh" target="_blank" rel="noreferrer" data-cursor="github" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);">
-                  <svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-                  GitHub ↗
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <a href="https://github.com/YogyaChugh/Webelo" target="_blank" rel="noreferrer" data-cursor="open" data-card-index="2" class="project-card group relative overflow-hidden rounded-3xl border-2 border-ink col-span-12 md:col-span-6 lg:col-span-4 min-h-[220px] md:min-h-[260px]" style="background: var(--card-bg); box-shadow: var(--shadow-hard);">
-          <div class="art-layer absolute inset-0 transition-opacity duration-500" style="background: linear-gradient(135deg, #f3e8ff 0%, #fce7f3 100%); opacity: 0.6;"></div>
-          <div aria-hidden class="index-layer font-display absolute -right-3 -top-6 select-none text-[180px] leading-none text-ink/10 transition-all duration-500" style="opacity: 0.08">02</div>
-          <div class="relative flex h-full flex-col justify-between p-6 md:p-7">
-            <div>
-              <div class="flex items-center justify-between">
-                <span class="font-display text-[11px] uppercase tracking-[0.22em] text-ink/60">Project · 2025</span>
-                <span class="font-display rounded-full border-2 border-ink px-2.5 py-0.5 text-[10px] uppercase tracking-[0.18em] text-ink" style="background:#f3e8ff;">featured</span>
-              </div>
-              <h3 class="font-display mt-3 leading-[0.95] text-[clamp(1.6rem,2.6vw,2.4rem)]">Webelo</h3>
-              <p class="font-body mt-3 max-w-md text-ink/80 text-[14px] leading-[1.5]">C++ DOM library + HTML visualiser that strictly follows the WhatWG DOM Standard. Foundation for a real browser engine.</p>
-            </div>
-            <div class="mt-6 flex flex-col gap-4">
-              <div class="flex flex-wrap gap-1.5">
-                <span class="font-display rounded-full border border-ink/30 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.12em]" style="background: rgba(253,240,252,0.80);">C++</span>
-                <span class="font-display rounded-full border border-ink/30 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.12em]" style="background: rgba(253,240,252,0.80);">WhatWG</span>
-                <span class="font-display rounded-full border border-ink/30 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.12em]" style="background: rgba(253,240,252,0.80);">Browser</span>
-              </div>
-              <div class="flex flex-wrap gap-2">
-                                <span data-cursor="windows" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.949"/></svg> Windows</span>
-                <span data-cursor="macos" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg> macOS</span>
-                <span data-cursor="linux" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489.117.779.567 1.563 1.205 2.04 1.065.76 2.566.894 3.876.497l.82.186c.79.217 1.538.53 2.217.945 1.093.76 1.717 1.893 1.717 3.187v.03h.058c.096 0 .19-.003.282-.007 4.193-.37 4.156-4.56 4.156-4.56v-.03c0-1.294.624-2.428 1.716-3.187.679-.415 1.427-.728 2.217-.945l.82-.186c1.31.397 2.81.263 3.876-.497.638-.477 1.088-1.261 1.205-2.04.123-.805-.009-1.657-.287-2.489-.589-1.771-1.831-3.47-2.716-4.52-.75-1.068-.974-1.93-1.05-3.021-.065-1.491 1.056-5.965-3.17-6.298-.165-.013-.325-.021-.48-.021zm-4.8 8.701c.33 0 .599.27.599.6s-.269.6-.6.6-.6-.27-.6-.6.27-.6.6-.6zm9.6 0c.33 0 .599.27.599.6s-.269.6-.6.6-.6-.27-.6-.6.27-.6.6-.6z"/></svg> Linux</span>
-                <span data-cursor="android" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993.0001.5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4483.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.2439 13.8533 7.8508 12 7.8508s-3.5902.3931-5.1367 1.0729L4.841 5.4207a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3435-4.1021-2.6892-7.5743-6.1185-9.4396"/></svg> Android</span>
-                <span data-cursor="ios" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> iOS</span>
-                <span data-cursor="github" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg> GitHub ↗</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <!-- Vardhman Saathi -->
-        <a href="https://vardhmanelectricals.shop" target="_blank" rel="noreferrer" data-cursor="open" data-card-index="3" class="project-card group relative overflow-hidden rounded-3xl border-2 border-ink col-span-12 md:col-span-6 lg:col-span-4 min-h-[220px] md:min-h-[260px]" style="background: var(--card-bg); box-shadow: var(--shadow-hard);">
-          <div class="art-layer absolute inset-0 transition-opacity duration-500" style="background: linear-gradient(135deg, #fce7f3 0%, #fda4af 40%, #fdf2f8 100%); opacity: 0.45;"></div>
-          <div aria-hidden class="index-layer font-display absolute -right-3 -top-6 select-none text-[180px] leading-none text-ink/10 transition-all duration-500" style="opacity: 0.08">03</div>
-          <div class="relative flex h-full flex-col justify-between p-6 md:p-7">
-            <div>
-              <div class="flex items-center justify-between">
-                <span class="font-display text-[11px] uppercase tracking-[0.22em] text-ink/60">Project · 2026</span>
-                <span class="font-display rounded-full border-2 border-ink px-2.5 py-0.5 text-[10px] uppercase tracking-[0.18em] text-ink" style="background:#fce7f3;">featured</span>
-              </div>
-              <h3 class="font-display mt-3 leading-[0.95] text-[clamp(1.6rem,2.6vw,2.4rem)]">Vardhman Saathi</h3>
-              <p class="font-body mt-3 max-w-md text-ink/80 text-[14px] leading-[1.5]">Production business suite for a real electrical contractor. Hono API · Supabase · R2 · React Native Android. Live client, live revenue.</p>
-            </div>
-            <div class="mt-6 flex flex-col gap-4">
-              <div class="flex flex-wrap gap-1.5">
-                <span class="font-display rounded-full border border-ink/30 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.12em]" style="background: rgba(253,240,252,0.80);">TypeScript</span>
-                <span class="font-display rounded-full border border-ink/30 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.12em]" style="background: rgba(253,240,252,0.80);">Hono</span>
-                <span class="font-display rounded-full border border-ink/30 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.12em]" style="background: rgba(253,240,252,0.80);">React Native</span>
-              </div>
-              <div class="flex flex-wrap gap-2">
-                                <span data-cursor="windows" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.949"/></svg> Windows</span>
-                <span data-cursor="macos" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg> macOS</span>
-                <span data-cursor="linux" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489.117.779.567 1.563 1.205 2.04 1.065.76 2.566.894 3.876.497l.82.186c.79.217 1.538.53 2.217.945 1.093.76 1.717 1.893 1.717 3.187v.03h.058c.096 0 .19-.003.282-.007 4.193-.37 4.156-4.56 4.156-4.56v-.03c0-1.294.624-2.428 1.716-3.187.679-.415 1.427-.728 2.217-.945l.82-.186c1.31.397 2.81.263 3.876-.497.638-.477 1.088-1.261 1.205-2.04.123-.805-.009-1.657-.287-2.489-.589-1.771-1.831-3.47-2.716-4.52-.75-1.068-.974-1.93-1.05-3.021-.065-1.491 1.056-5.965-3.17-6.298-.165-.013-.325-.021-.48-.021zm-4.8 8.701c.33 0 .599.27.599.6s-.269.6-.6.6-.6-.27-.6-.6.27-.6.6-.6zm9.6 0c.33 0 .599.27.599.6s-.269.6-.6.6-.6-.27-.6-.6.27-.6.6-.6z"/></svg> Linux</span>
-                <span data-cursor="android" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993.0001.5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4483.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.2439 13.8533 7.8508 12 7.8508s-3.5902.3931-5.1367 1.0729L4.841 5.4207a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3435-4.1021-2.6892-7.5743-6.1185-9.4396"/></svg> Android</span>
-                <span data-cursor="ios" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> iOS</span>
-                <span data-cursor="github" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg> GitHub ↗</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <!-- AgroLens -->
-        <a href="https://github.com/YogyaChughCoder/AgroLens" target="_blank" rel="noreferrer" data-cursor="open" data-card-index="4" class="project-card group relative overflow-hidden rounded-3xl border-2 border-ink col-span-12 sm:col-span-6 lg:col-span-4 min-h-[220px] md:min-h-[260px]" style="background: var(--card-bg); box-shadow: var(--shadow-hard);">
-          <div class="art-layer absolute inset-0 transition-opacity duration-500" style="background: linear-gradient(135deg, #e9d5ff 0%, #fce7f3 100%); opacity: 0.5;"></div>
-          <div aria-hidden class="index-layer font-display absolute -right-3 -top-6 select-none text-[180px] leading-none text-ink/10 transition-all duration-500" style="opacity: 0.08">04</div>
-          <div class="relative flex h-full flex-col justify-between p-6 md:p-7">
-            <div>
-              <div class="flex items-center justify-between">
-                <span class="font-display text-[11px] uppercase tracking-[0.22em] text-ink/60">Project · 2024</span>
-              </div>
-              <h3 class="font-display mt-3 leading-[0.95] text-[clamp(1.6rem,2.6vw,2.4rem)]">AgroLens</h3>
-              <p class="font-body mt-3 max-w-md text-ink/80 text-[14px] leading-[1.5]">Computer-vision model classifying plant-leaf diseases. Dataset pipeline, training, deployment — team build.</p>
-            </div>
-            <div class="mt-6 flex flex-col gap-4">
-              <div class="flex flex-wrap gap-1.5">
-                <span class="font-display rounded-full border border-ink/30 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.12em]" style="background: rgba(253,240,252,0.80);">Python</span>
-                <span class="font-display rounded-full border border-ink/30 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.12em]" style="background: rgba(253,240,252,0.80);">PyTorch</span>
-                <span class="font-display rounded-full border border-ink/30 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.12em]" style="background: rgba(253,240,252,0.80);">CV</span>
-              </div>
-              <div class="flex flex-wrap gap-2">
-                                <span data-cursor="windows" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.949"/></svg> Windows</span>
-                <span data-cursor="macos" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg> macOS</span>
-                <span data-cursor="linux" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489.117.779.567 1.563 1.205 2.04 1.065.76 2.566.894 3.876.497l.82.186c.79.217 1.538.53 2.217.945 1.093.76 1.717 1.893 1.717 3.187v.03h.058c.096 0 .19-.003.282-.007 4.193-.37 4.156-4.56 4.156-4.56v-.03c0-1.294.624-2.428 1.716-3.187.679-.415 1.427-.728 2.217-.945l.82-.186c1.31.397 2.81.263 3.876-.497.638-.477 1.088-1.261 1.205-2.04.123-.805-.009-1.657-.287-2.489-.589-1.771-1.831-3.47-2.716-4.52-.75-1.068-.974-1.93-1.05-3.021-.065-1.491 1.056-5.965-3.17-6.298-.165-.013-.325-.021-.48-.021zm-4.8 8.701c.33 0 .599.27.599.6s-.269.6-.6.6-.6-.27-.6-.6.27-.6.6-.6zm9.6 0c.33 0 .599.27.599.6s-.269.6-.6.6-.6-.27-.6-.6.27-.6.6-.6z"/></svg> Linux</span>
-                <span data-cursor="android" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993.0001.5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4483.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.2439 13.8533 7.8508 12 7.8508s-3.5902.3931-5.1367 1.0729L4.841 5.4207a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3435-4.1021-2.6892-7.5743-6.1185-9.4396"/></svg> Android</span>
-                <span data-cursor="ios" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> iOS</span>
-                <span data-cursor="github" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg> GitHub ↗</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <!-- Snake Hustle -->
-        <a href="https://snakehustle.netlify.app" target="_blank" rel="noreferrer" data-cursor="open" data-card-index="5" class="project-card group relative overflow-hidden rounded-3xl border-2 border-ink col-span-12 sm:col-span-6 lg:col-span-4 min-h-[220px] md:min-h-[260px]" style="background: var(--card-bg); box-shadow: var(--shadow-hard);">
-          <div class="art-layer absolute inset-0 transition-opacity duration-500" style="background: linear-gradient(135deg, #fdf2f8 0%, #f3e8ff 100%); opacity: 0.6;"></div>
-          <div aria-hidden class="index-layer font-display absolute -right-3 -top-6 select-none text-[180px] leading-none text-ink/10 transition-all duration-500" style="opacity: 0.08">05</div>
-          <div class="relative flex h-full flex-col justify-between p-6 md:p-7">
-            <div>
-              <span class="font-display text-[11px] uppercase tracking-[0.22em] text-ink/60">Project · 2024</span>
-              <h3 class="font-display mt-3 leading-[0.95] text-[clamp(1.6rem,2.6vw,2.4rem)]">Snake Hustle</h3>
-              <p class="font-body mt-3 max-w-md text-ink/80 text-[14px] leading-[1.5]">Browser snake. The OG obsession. Click to play, get yelled at by your own high score.</p>
-            </div>
-            <div class="mt-6 flex flex-col gap-4">
-              <div class="flex flex-wrap gap-1.5">
-                <span class="font-display rounded-full border border-ink/30 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.12em]" style="background: rgba(253,240,252,0.80);">Game</span>
-                <span class="font-display rounded-full border border-ink/30 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.12em]" style="background: rgba(253,240,252,0.80);">Web</span>
-              </div>
-              <div class="flex flex-wrap gap-2">
-                                <span data-cursor="windows" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.949"/></svg> Windows</span>
-                <span data-cursor="macos" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg> macOS</span>
-                <span data-cursor="linux" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489.117.779.567 1.563 1.205 2.04 1.065.76 2.566.894 3.876.497l.82.186c.79.217 1.538.53 2.217.945 1.093.76 1.717 1.893 1.717 3.187v.03h.058c.096 0 .19-.003.282-.007 4.193-.37 4.156-4.56 4.156-4.56v-.03c0-1.294.624-2.428 1.716-3.187.679-.415 1.427-.728 2.217-.945l.82-.186c1.31.397 2.81.263 3.876-.497.638-.477 1.088-1.261 1.205-2.04.123-.805-.009-1.657-.287-2.489-.589-1.771-1.831-3.47-2.716-4.52-.75-1.068-.974-1.93-1.05-3.021-.065-1.491 1.056-5.965-3.17-6.298-.165-.013-.325-.021-.48-.021zm-4.8 8.701c.33 0 .599.27.599.6s-.269.6-.6.6-.6-.27-.6-.6.27-.6.6-.6zm9.6 0c.33 0 .599.27.599.6s-.269.6-.6.6-.6-.27-.6-.6.27-.6.6-.6z"/></svg> Linux</span>
-                <span data-cursor="android" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993.0001.5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4483.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.2439 13.8533 7.8508 12 7.8508s-3.5902.3931-5.1367 1.0729L4.841 5.4207a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3435-4.1021-2.6892-7.5743-6.1185-9.4396"/></svg> Android</span>
-                <span data-cursor="ios" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> iOS</span>
-                <span data-cursor="github" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg> GitHub ↗</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <!-- Timberly -->
-        <a href="https://yogya-chugh.itch.io/timberly" target="_blank" rel="noreferrer" data-cursor="open" data-card-index="6" class="project-card group relative overflow-hidden rounded-3xl border-2 border-ink col-span-12 sm:col-span-6 lg:col-span-4 min-h-[220px] md:min-h-[260px]" style="background: var(--card-bg); box-shadow: var(--shadow-hard);">
-          <div class="art-layer absolute inset-0 transition-opacity duration-500" style="background: linear-gradient(135deg, #fce7f3 0%, #e9d5ff 50%, #fdf2f8 100%); opacity: 0.5;"></div>
-          <div aria-hidden class="index-layer font-display absolute -right-3 -top-6 select-none text-[180px] leading-none text-ink/10 transition-all duration-500" style="opacity: 0.08">06</div>
-          <div class="relative flex h-full flex-col justify-between p-6 md:p-7">
-            <div>
-              <span class="font-display text-[11px] uppercase tracking-[0.22em] text-ink/60">Project · 2024</span>
-              <h3 class="font-display mt-3 leading-[0.95] text-[clamp(1.6rem,2.6vw,2.4rem)]">Timberly</h3>
-              <p class="font-body mt-3 max-w-md text-ink/80 text-[14px] leading-[1.5]">Casual lumberjack game — plays in-browser, downloads for Win/macOS/Linux/Android.</p>
-            </div>
-            <div class="mt-6 flex flex-col gap-4">
-              <div class="flex flex-wrap gap-1.5">
-                <span class="font-display rounded-full border border-ink/30 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.12em]" style="background: rgba(253,240,252,0.80);">Game</span>
-                <span class="font-display rounded-full border border-ink/30 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.12em]" style="background: rgba(253,240,252,0.80);">C++</span>
-              </div>
-              <div class="flex flex-wrap gap-2">
-                                <span data-cursor="windows" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.949"/></svg> Windows</span>
-                <span data-cursor="macos" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg> macOS</span>
-                <span data-cursor="linux" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489.117.779.567 1.563 1.205 2.04 1.065.76 2.566.894 3.876.497l.82.186c.79.217 1.538.53 2.217.945 1.093.76 1.717 1.893 1.717 3.187v.03h.058c.096 0 .19-.003.282-.007 4.193-.37 4.156-4.56 4.156-4.56v-.03c0-1.294.624-2.428 1.716-3.187.679-.415 1.427-.728 2.217-.945l.82-.186c1.31.397 2.81.263 3.876-.497.638-.477 1.088-1.261 1.205-2.04.123-.805-.009-1.657-.287-2.489-.589-1.771-1.831-3.47-2.716-4.52-.75-1.068-.974-1.93-1.05-3.021-.065-1.491 1.056-5.965-3.17-6.298-.165-.013-.325-.021-.48-.021zm-4.8 8.701c.33 0 .599.27.599.6s-.269.6-.6.6-.6-.27-.6-.6.27-.6.6-.6zm9.6 0c.33 0 .599.27.599.6s-.269.6-.6.6-.6-.27-.6-.6.27-.6.6-.6z"/></svg> Linux</span>
-                <span data-cursor="android" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993.0001.5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4483.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.2439 13.8533 7.8508 12 7.8508s-3.5902.3931-5.1367 1.0729L4.841 5.4207a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3435-4.1021-2.6892-7.5743-6.1185-9.4396"/></svg> Android</span>
-                <span data-cursor="ios" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> iOS</span>
-                <span data-cursor="github" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg> GitHub ↗</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <!-- Webber -->
-        <a href="https://github.com/YogyaChugh/Webber" target="_blank" rel="noreferrer" data-cursor="open" data-card-index="7" class="project-card group relative overflow-hidden rounded-3xl border-2 border-ink col-span-12 sm:col-span-6 lg:col-span-4 min-h-[220px] md:min-h-[260px]" style="background: var(--card-bg); box-shadow: var(--shadow-hard);">
-          <div class="art-layer absolute inset-0 transition-opacity duration-500" style="background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%); opacity: 0.55;"></div>
-          <div aria-hidden class="index-layer font-display absolute -right-3 -top-6 select-none text-[180px] leading-none text-ink/10 transition-all duration-500" style="opacity: 0.08">07</div>
-          <div class="relative flex h-full flex-col justify-between p-6 md:p-7">
-            <div>
-              <span class="font-display text-[11px] uppercase tracking-[0.22em] text-ink/60">Project · 2023</span>
-              <h3 class="font-display mt-3 leading-[0.95] text-[clamp(1.6rem,2.6vw,2.4rem)]">Webber</h3>
-              <p class="font-body mt-3 max-w-md text-ink/80 text-[14px] leading-[1.5]">Desktop crawler that downloads any website for offline rendering. Pygame + PyWebview + BS4.</p>
-            </div>
-            <div class="mt-6 flex flex-col gap-4">
-              <div class="flex flex-wrap gap-1.5">
-                <span class="font-display rounded-full border border-ink/30 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.12em]" style="background: rgba(253,240,252,0.80);">Python</span>
-                <span class="font-display rounded-full border border-ink/30 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.12em]" style="background: rgba(253,240,252,0.80);">Crawler</span>
-              </div>
-              <div class="flex flex-wrap gap-2">
-                <span data-cursor="windows" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.949"/></svg> Windows</span>
-                <span data-cursor="macos" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg> macOS</span>
-                <span data-cursor="linux" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489.117.779.567 1.563 1.205 2.04 1.065.76 2.566.894 3.876.497l.82.186c.79.217 1.538.53 2.217.945 1.093.76 1.717 1.893 1.717 3.187v.03h.058c.096 0 .19-.003.282-.007 4.193-.37 4.156-4.56 4.156-4.56v-.03c0-1.294.624-2.428 1.716-3.187.679-.415 1.427-.728 2.217-.945l.82-.186c1.31.397 2.81.263 3.876-.497.638-.477 1.088-1.261 1.205-2.04.123-.805-.009-1.657-.287-2.489-.589-1.771-1.831-3.47-2.716-4.52-.75-1.068-.974-1.93-1.05-3.021-.065-1.491 1.056-5.965-3.17-6.298-.165-.013-.325-.021-.48-.021zm-4.8 8.701c.33 0 .599.27.599.6s-.269.6-.6.6-.6-.27-.6-.6.27-.6.6-.6zm9.6 0c.33 0 .599.27.599.6s-.269.6-.6.6-.6-.27-.6-.6.27-.6.6-.6z"/></svg> Linux</span>
-                <span data-cursor="android" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993.0001.5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4483.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.2439 13.8533 7.8508 12 7.8508s-3.5902.3931-5.1367 1.0729L4.841 5.4207a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3435-4.1021-2.6892-7.5743-6.1185-9.4396"/></svg> Android</span>
-                <span data-cursor="ios" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> iOS</span>
-                <span data-cursor="github" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg> GitHub ↗</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <!-- SIH Travel Security -->
-        <a href="https://github.com/YogyaChugh" target="_blank" rel="noreferrer" data-cursor="open" data-card-index="8" class="project-card group relative overflow-hidden rounded-3xl border-2 border-ink col-span-12 sm:col-span-6 lg:col-span-4 min-h-[220px] md:min-h-[260px]" style="background: var(--card-bg); box-shadow: var(--shadow-hard);">
-          <div class="art-layer absolute inset-0 transition-opacity duration-500" style="background: linear-gradient(135deg, #f3e8ff 0%, #fce7f3 100%); opacity: 0.55;"></div>
-          <div aria-hidden class="index-layer font-display absolute -right-3 -top-6 select-none text-[180px] leading-none text-ink/10 transition-all duration-500" style="opacity: 0.08">08</div>
-          <div class="relative flex h-full flex-col justify-between p-6 md:p-7">
-            <div>
-              <span class="font-display text-[11px] uppercase tracking-[0.22em] text-ink/60">Project · 2024</span>
-              <h3 class="font-display mt-3 leading-[0.95] text-[clamp(1.6rem,2.6vw,2.4rem)]">SIH Travel Security</h3>
-              <p class="font-body mt-3 max-w-md text-ink/80 text-[14px] leading-[1.5]">Blockchain system for encrypted tourist tracking with SSO to local authorities. Cleared SIH internals twice.</p>
-            </div>
-            <div class="mt-6 flex flex-col gap-4">
-              <div class="flex flex-wrap gap-1.5">
-                <span class="font-display rounded-full border border-ink/30 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.12em]" style="background: rgba(253,240,252,0.80);">Blockchain</span>
-                <span class="font-display rounded-full border border-ink/30 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.12em]" style="background: rgba(253,240,252,0.80);">Team</span>
-              </div>
-              <div class="flex flex-wrap gap-2">
-                <span data-cursor="windows" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.949"/></svg> Windows</span>
-                <span data-cursor="macos" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg> macOS</span>
-                <span data-cursor="linux" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489.117.779.567 1.563 1.205 2.04 1.065.76 2.566.894 3.876.497l.82.186c.79.217 1.538.53 2.217.945 1.093.76 1.717 1.893 1.717 3.187v.03h.058c.096 0 .19-.003.282-.007 4.193-.37 4.156-4.56 4.156-4.56v-.03c0-1.294.624-2.428 1.716-3.187.679-.415 1.427-.728 2.217-.945l.82-.186c1.31.397 2.81.263 3.876-.497.638-.477 1.088-1.261 1.205-2.04.123-.805-.009-1.657-.287-2.489-.589-1.771-1.831-3.47-2.716-4.52-.75-1.068-.974-1.93-1.05-3.021-.065-1.491 1.056-5.965-3.17-6.298-.165-.013-.325-.021-.48-.021zm-4.8 8.701c.33 0 .599.27.599.6s-.269.6-.6.6-.6-.27-.6-.6.27-.6.6-.6zm9.6 0c.33 0 .599.27.599.6s-.269.6-.6.6-.6-.27-.6-.6.27-.6.6-.6z"/></svg> Linux</span>
-                <span data-cursor="android" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993.0001.5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4483.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.2439 13.8533 7.8508 12 7.8508s-3.5902.3931-5.1367 1.0729L4.841 5.4207a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3435-4.1021-2.6892-7.5743-6.1185-9.4396"/></svg> Android</span>
-                <span data-cursor="ios" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> iOS</span>
-                <span data-cursor="github" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg> GitHub ↗</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <!-- Django OSS -->
-        <a href="https://github.com/YogyaChugh/django" target="_blank" rel="noreferrer" data-cursor="open" data-card-index="9" class="project-card group relative overflow-hidden rounded-3xl border-2 border-ink col-span-12 sm:col-span-6 lg:col-span-4 min-h-[220px] md:min-h-[260px]" style="background: var(--card-bg); box-shadow: var(--shadow-hard);">
-          <div class="art-layer absolute inset-0 transition-opacity duration-500" style="background: linear-gradient(135deg, #fce7f3 0%, #f3e8ff 100%); opacity: 0.5;"></div>
-          <div aria-hidden class="index-layer font-display absolute -right-3 -top-6 select-none text-[180px] leading-none text-ink/10 transition-all duration-500" style="opacity: 0.08">09</div>
-          <div class="relative flex h-full flex-col justify-between p-6 md:p-7">
-            <div>
-              <span class="font-display text-[11px] uppercase tracking-[0.22em] text-ink/60">Project · 2024</span>
-              <h3 class="font-display mt-3 leading-[0.95] text-[clamp(1.6rem,2.6vw,2.4rem)]">Django · Open Source</h3>
-              <p class="font-body mt-3 max-w-md text-ink/80 text-[14px] leading-[1.5]">Merged PRs into Django core + third-party libraries. Open-source compounder.</p>
-            </div>
-            <div class="mt-6 flex flex-col gap-4">
-              <div class="flex flex-wrap gap-1.5">
-                <span class="font-display rounded-full border border-ink/30 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.12em]" style="background: rgba(253,240,252,0.80);">Python</span>
-                <span class="font-display rounded-full border border-ink/30 px-2.5 py-0.5 text-[11px] uppercase tracking-[0.12em]" style="background: rgba(253,240,252,0.80);">OSS</span>
-              </div>
-              <div class="flex flex-wrap gap-2">
-                <span data-cursor="windows" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.949"/></svg> Windows</span>
-                <span data-cursor="macos" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg> macOS</span>
-                <span data-cursor="linux" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-paper transition-opacity hover:opacity-75"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489.117.779.567 1.563 1.205 2.04 1.065.76 2.566.894 3.876.497l.82.186c.79.217 1.538.53 2.217.945 1.093.76 1.717 1.893 1.717 3.187v.03h.058c.096 0 .19-.003.282-.007 4.193-.37 4.156-4.56 4.156-4.56v-.03c0-1.294.624-2.428 1.716-3.187.679-.415 1.427-.728 2.217-.945l.82-.186c1.31.397 2.81.263 3.876-.497.638-.477 1.088-1.261 1.205-2.04.123-.805-.009-1.657-.287-2.489-.589-1.771-1.831-3.47-2.716-4.52-.75-1.068-.974-1.93-1.05-3.021-.065-1.491 1.056-5.965-3.17-6.298-.165-.013-.325-.021-.48-.021zm-4.8 8.701c.33 0 .599.27.599.6s-.269.6-.6.6-.6-.27-.6-.6.27-.6.6-.6zm9.6 0c.33 0 .599.27.599.6s-.269.6-.6.6-.6-.27-.6-.6.27-.6.6-.6z"/></svg> Linux</span>
-                <span data-cursor="android" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993.0001.5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4483.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.2439 13.8533 7.8508 12 7.8508s-3.5902.3931-5.1367 1.0729L4.841 5.4207a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3435-4.1021-2.6892-7.5743-6.1185-9.4396"/></svg> Android</span>
-                <span data-cursor="ios" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> iOS</span>
-                <span data-cursor="github" class="font-display inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-ink hover:text-paper" style="background: rgba(253,240,252,0.90);"><svg class="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg> GitHub ↗</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
+      <div id="projects-grid" class="mt-8 grid grid-cols-12 gap-4">
+        <!-- Dynamically populated from script.js (PROJECTS array) -->
       </div>
     </div>
   </section>
 
+  <!-- Project Detail Modal -->
+  <div id="project-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-ink/50 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+    <div id="project-modal-container" class="w-full h-full max-w-6xl max-h-[92vh] bg-paper border-2 border-ink rounded-[28px] sm:rounded-[36px] overflow-hidden flex flex-col relative shadow-[var(--shadow-hard)] transform scale-95 transition-transform duration-300">
+      <button id="btn-close-project-modal" class="absolute top-4 right-4 sm:top-6 sm:right-6 font-display rounded-full border-2 border-ink px-4 py-2 text-[11px] uppercase tracking-widest hover:bg-ink hover:text-paper transition-colors z-50" style="background:var(--paper);">Close ✕</button>
+      <div id="project-modal-body" class="flex-1 overflow-y-auto">
+        <!-- Dynamically populated via script.js -->
+      </div>
+    </div>
+  </div>
+
   <!-- ═══════════════════════════════════════
+       PLAY — in-browser games
+  ════════════════════════════════════════ -->
+  <section id="hangman-play" class="relative px-4 py-14 md:px-8 md:py-20">
+    <div class="mx-auto max-w-[1400px]">
+      <div class="flex flex-wrap items-end justify-between gap-3 border-b-2 border-ink pb-4">
+        <div>
+          <span class="font-display inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.24em] text-ink/70">
+            <span class="inline-block h-1.5 w-6 bg-chrome rounded-full"></span>Live demos
+          </span>
+          <h2 class="font-display mt-2 text-[clamp(2.4rem,5vw,4rem)] leading-[0.95]">Actually,<br>play one.</h2>
+        </div>
+        <p class="max-w-sm text-[13px] text-ink/60">Two games, running right here — no download. Pick one below.</p>
+      </div>
+
+      <div class="mt-6 flex flex-wrap gap-2">
+        <button id="game-tab-timberly" data-game="timberly" class="game-tab font-display rounded-full border-2 border-ink px-4 py-2 text-[12px] uppercase tracking-[0.18em] transition-colors" style="background: var(--ink); color: var(--paper);">
+          🌲 Timberly <span class="opacity-60 normal-case tracking-normal">— the first game I built</span>
+        </button>
+        <button id="game-tab-hangman" data-game="hangman" class="game-tab font-display rounded-full border-2 border-ink px-4 py-2 text-[12px] uppercase tracking-[0.18em] transition-colors" style="background: var(--paper); color: var(--ink);">
+          🪢 Hangman
+        </button>
+      </div>
+
+      <!-- Timberly stage -->
+      <div id="stage-timberly" class="game-stage mt-4 rounded-2xl border-2 border-ink overflow-hidden" style="background: var(--card-bg); box-shadow: var(--shadow-hard);">
+        <div class="flex items-center gap-2 border-b-2 border-ink px-4 py-3" style="background: var(--gradient-chrome-soft);">
+          <span class="h-2.5 w-2.5 rounded-full" style="background:#ff5f56;"></span>
+          <span class="h-2.5 w-2.5 rounded-full" style="background:#ffbd2e;"></span>
+          <span class="h-2.5 w-2.5 rounded-full" style="background:#27c93f;"></span>
+          <span class="font-mono ml-2 text-[11px] uppercase tracking-[0.18em] text-ink/50">timberly — python · pygame · wasm</span>
+        </div>
+        <div class="relative" style="background:#15151c; aspect-ratio: 16/9; max-height: 70vh;">
+          <div id="timberly-host" class="w-full h-full"></div>
+          <div id="timberly-overlay" class="absolute inset-0 flex flex-col items-center justify-center gap-4 text-center px-6" style="background:#15151c;">
+            <span class="font-display text-[13px] uppercase tracking-[0.2em]" style="color:#ff6eb4;">My first game, click to load it</span>
+            <button id="timberly-start-btn" class="font-display rounded-full border-2 px-6 py-2.5 text-[12px] uppercase tracking-[0.2em] transition-colors" style="border-color:#ff6eb4; color:#ff6eb4;">▶ Play Timberly</button>
+            <span class="font-mono text-[11px]" style="color:#666;">loads only when you ask — keeps the page light</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between gap-3 px-4 py-3 border-t-2 border-ink">
+          <span id="timberly-status" class="font-mono text-[11px] text-ink/50"></span>
+        </div>
+      </div>
+
+      <!-- Hangman stage -->
+      <div id="stage-hangman" class="game-stage mt-4 rounded-2xl border-2 border-ink overflow-hidden hidden" style="background: var(--card-bg); box-shadow: var(--shadow-hard);">
+        <div class="flex items-center gap-2 border-b-2 border-ink px-4 py-3" style="background: var(--gradient-chrome-soft);">
+          <span class="h-2.5 w-2.5 rounded-full" style="background:#ff5f56;"></span>
+          <span class="h-2.5 w-2.5 rounded-full" style="background:#ffbd2e;"></span>
+          <span class="h-2.5 w-2.5 rounded-full" style="background:#27c93f;"></span>
+          <span class="font-mono ml-2 text-[11px] uppercase tracking-[0.18em] text-ink/50">hangman.c — wasm</span>
+        </div>
+        <div class="relative" style="background:#15151c;">
+          <div id="hangman-terminal" class="w-full" style="height: 520px;"></div>
+          <div id="hangman-overlay" class="absolute inset-0 flex flex-col items-center justify-center gap-4 text-center px-6" style="background:#15151c;">
+            <span class="font-display text-[13px] uppercase tracking-[0.2em]" style="color:#ff6eb4;">Click to load the game</span>
+            <button id="hangman-start-btn" class="font-display rounded-full border-2 px-6 py-2.5 text-[12px] uppercase tracking-[0.2em] transition-colors" style="border-color:#ff6eb4; color:#ff6eb4;">▶ Play Hangman</button>
+            <span class="font-mono text-[11px]" style="color:#666;">loads only when you ask — keeps the page light</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between gap-3 px-4 py-3 border-t-2 border-ink">
+          <span id="hangman-status" class="font-mono text-[11px] text-ink/50"></span>
+          <button id="hangman-restart-btn" class="font-display rounded-full border-2 border-ink px-4 py-1.5 text-[11px] uppercase tracking-[0.18em] transition-colors hover:bg-ink hover:text-paper hidden" style="background: var(--paper);">Restart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ═══════════════════════════════════════
        AWARDS
   ════════════════════════════════════════ -->
   <section id="trophies" class="relative px-4 py-14 md:px-8 md:py-20">
